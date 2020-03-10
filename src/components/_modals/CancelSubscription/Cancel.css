@@ -1,0 +1,40 @@
+.Cancel {
+  background-color: transparent!important;
+  padding: 0!important;
+  margin: 0!important;
+  height: auto!important;
+  width: 400px!important;
+  -webkit-box-shadow: none!important;
+  -moz-box-shadow: none!important;
+  box-shadow: none!important;
+}
+
+.Cancel-close {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.Cancel-content {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.Cancel-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.Cancel-buttons span {
+  margin: 7px auto;
+}
+
+.lsbtn {
+  color: white;
+  font-weight: 700;
+  width: 150px;
+  margin: auto 3px;
+}

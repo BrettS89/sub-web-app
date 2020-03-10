@@ -1,0 +1,35 @@
+.FindSpots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SpotCard {
+  display: flex;
+  margin: 20px auto;
+  padding: 30px;
+}
+
+.SpotCard img {
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.SpotCard-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+}
+
+.SpotCard h2 {
+  margin-bottom: 20px;
+}
+
+.SpotCard-button {
+  width: 150px;
+  color: white;
+}

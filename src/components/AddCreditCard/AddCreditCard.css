@@ -1,0 +1,45 @@
+.AddCreditCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.AddCreditCard h1{
+  margin-top: 30px;
+  border-bottom: 2px solid #026FD2;
+  padding-bottom: 8px;
+}
+
+.AddCreditCard-form-container {
+  height: 47%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.AddCreditCard-form {
+  border: 1px solid #e0e0e0;
+  border-radius: 9px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+.AddCreditCard-form h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.AddCreditCard-form-input {
+  margin: 5px auto!important;
+}
+
+.AddCreditCard-button {
+  color: white;
+  font-weight: 700;
+  width: 150px;
+  margin-top: 15px;
+}

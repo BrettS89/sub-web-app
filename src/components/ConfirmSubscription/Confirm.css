@@ -1,0 +1,36 @@
+.Confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.Confirm h1 {
+  margin-top: 30px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #026FD2;
+}
+
+.Confirm img {
+  margin-top: 30px;
+  width: 300px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.Confirm h4 {
+  margin-bottom: 7px;
+}
+
+.Confirm p {
+  margin: 0 auto;
+  font-weight: 700;
+  color: #026FD2;
+  font-size: 18px;
+}
+
+.Confirm button {
+  margin-top: 30px;
+  width: 150px;
+  color: white;
+}

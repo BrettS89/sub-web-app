@@ -1,0 +1,51 @@
+.toggle-button {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  padding-bottom: 0;
+  color: #026FD2;
+}
+
+.toggle-button:focus {
+  outline: none;
+}
+
+.SideDrawer {
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  max-width: 350px;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.2s ease-out;
+}
+
+.SideDrawer.open {
+  transform: translateX(0);
+}
+
+.SideDrawer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+}
+
+.SideDrawer ul li {
+  margin: .6rem 0;
+  width: 180px;
+  font-size: 1.2rem;
+}
+
+
+@media(min-width: 701px) {
+  .SideDrawer {
+    display: none;
+  }
+} 

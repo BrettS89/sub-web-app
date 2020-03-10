@@ -1,0 +1,65 @@
+.Account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.Account h1 {
+  margin-top: 30px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #026FD2;
+}
+
+.Account-payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.Account-cardtext {
+  margin: 3px auto;
+}
+
+.Account-cardtext-sub {
+  margin-top: 8px;
+}
+
+.Account-payment-button {
+  width: 150px;
+  color: white;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.SubCard {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.SubCard img {
+  width: 300px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.SubCard-name {
+  margin-top: 7px;
+  margin-bottom: 5px;
+}
+
+.SubCard p {
+  margin: 4px auto!important;
+}
+
+.SubCard-cancel {
+  margin-top: 5px;
+  color: red;
+}
+
+.SubCard-cancel:hover {
+  cursor: pointer;
+}
