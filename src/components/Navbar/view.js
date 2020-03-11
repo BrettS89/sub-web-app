@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ToggleButton from '../SideDrawer/components/ToggleButton';
 
 const Navbar = ({ drawerClickHandler, isLoggedIn }) => {
-  function displayAccountOrLogin() {
+  function displayUseOrLogin() {
     if (!isLoggedIn) {
-      return <a href="/login">Login</a>;
+      return <Link to="/login">Login</Link>;
     }
-    return <a href="/account">Account</a>;
+    return <Link to="/usecredits">Use Subscriptions</Link>;
+  }
+
+  function displayAccount() {
+    if (isLoggedIn) {
+      return <Link to="/account">Account</Link>;
+    }
   }
 
   return (
@@ -19,8 +26,9 @@ const Navbar = ({ drawerClickHandler, isLoggedIn }) => {
         <div className="Navbar-spacer" />
         <div className="Navbar-items">
           <ul>
-            <li><a href="/spots">Find Subscriptions</a></li>
-            <li className="Navbar-login-button">{displayAccountOrLogin()}</li>
+            <li><Link to="/spots">Find Subscriptions</Link></li>
+            <li>{displayAccount()}</li>
+            <li className="Navbar-login-button">{displayUseOrLogin()}</li>
           </ul>
         </div>
       </nav>

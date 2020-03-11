@@ -24,6 +24,12 @@ a {
 }
 
 a:hover {
+  text-decoration: none;
+  color: #026FD2;
+}
+
+a:active {
+  text-decoration: none;
   color: #026FD2;
 }
 

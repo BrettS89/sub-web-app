@@ -181,6 +181,7 @@ export async function getCredits() {
 
 export async function useCredit(id) {
   const res = await fetch(`${URI}/credit/use/${id}`, {
+    method: 'PATCH',
     headers: {
       'authorization': getToken(),
     },

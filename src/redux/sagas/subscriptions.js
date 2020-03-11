@@ -1,9 +1,10 @@
 import {
   call, put, takeLatest, select, fork,
 } from 'redux-saga/effects';
+import _ from 'lodash';
 import * as actions from '../actions/types';
 import * as api from '../../lib/api';
-import { userSubscriptionsState } from '../selectors';
+import { userSubscriptionsState, creditsState } from '../selectors';
 
 export default [
   getSubscriptionsWatcher,
@@ -62,6 +63,8 @@ function * subscribeHandler({ payload: { data, navigate } }) {
       userSubs = [userSubscription];
     }
     yield put({ type: actions.SET_USER_SUBSCRIPTIONS, payload: userSubs });
+    const { subscriptions } = yield call(api.getCredits);
+    yield put({ type: actions.SET_CREDITS, payload: subscriptions });
     yield put({ type: actions.APP_IS_NOT_LOADING });
     navigate();
   } catch(e) {
@@ -101,16 +104,30 @@ function * cancelUserSubscriptionHandler({ payload }) {
 function * getCreditsHandler() {
   try {
     const { subscriptions } = yield call(api.getCredits);
-    console.log(subscriptions);
+    yield put({ type: actions.SET_CREDITS, payload: subscriptions });
   } catch(e) {
     console.log('getCreditsHandler error: ', e);
   }
 }
 
-function * useCreditHandler({ payload }) {
+function * useCreditHandler({ payload: { subscriptionName, itemId } }) {
   try {
     yield put({ type: actions.APP_IS_LOADING });
-    const { creditId } = yield call(api.useCredit, payload);
+    yield call(api.useCredit, itemId);
+    const credits = yield select(creditsState);
+    const subscriptions = _.cloneDeep(credits);
+
+    subscriptions.forEach(s => {
+      if (s.name === subscriptionName) {
+        s.items.forEach(i => {
+          if (i._id === itemId) {
+            i.credits--;
+          }
+        });
+      }
+    });
+
+    yield put({ type: actions.SET_CREDITS, payload: subscriptions });
     yield put({ type: actions.APP_IS_NOT_LOADING });
   } catch(e) {
     yield put({ type: actions.APP_IS_NOT_LOADING });

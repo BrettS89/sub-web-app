@@ -27,7 +27,7 @@ const ConfirmSubscription = props => {
   }, []);
 
   function navigate() {
-    props.history.push('/account');
+    props.history.push('/usecredits');
   }
 
   function confirmSubscription() {

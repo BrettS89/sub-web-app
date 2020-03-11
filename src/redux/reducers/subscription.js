@@ -3,7 +3,7 @@ import { SET_SUBSCRIPTION, SET_USER_SUBSCRIPTIONS, SET_CREDITS } from '../action
 const INITIAL_STATE = {
   userSubscriptions: [],
   subscription: null,
-  credits: {},
+  credits: [],
 };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
