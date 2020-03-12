@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Landing from '../components/Landing';
 import Login from '../components/Login';
@@ -10,10 +10,12 @@ import ConfirmSubscription from '../components/ConfirmSubscription';
 import Account from '../components/Account';
 import AddCreditCard from '../components/AddCreditCard';
 import UseCredits from '../components/UseCredits';
+import CompanyDashboard from '../components/CompanyDashboard';
 
 export default () => {
   return (
     <Switch>
+      <Route exact path="/company/dashboard" component={CompanyDashboard} />
       <Route exact path="/usecredits" component={UseCredits} />
       <Route exact path="/addcreditcard" component={AddCreditCard} />
       <Route exact path="/account" component={Account} />
