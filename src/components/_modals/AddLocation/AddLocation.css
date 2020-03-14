@@ -1,0 +1,89 @@
+.ALModal {
+  background-color: transparent!important;
+  padding: 0!important;
+  margin: 0!important;
+  height: auto!important;
+  width: 400px!important;
+  -webkit-box-shadow: none!important;
+  -moz-box-shadow: none!important;
+  box-shadow: none!important;
+}
+
+.ALModal-close {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.ALModal-content {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.ALModalForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.ALModal-input {
+  width: 270px!important;
+  align-items: center!important;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.ALModal-input2 {
+  width: 80px;
+  align-items: center!important;
+  justify-content: center!important;
+  margin-bottom: 10px;
+}
+
+.ALModal-add-item {
+  height: 100%!important;
+  font-size: 28px!important;
+  color: #026FD2;
+}
+
+.ALModal-item-picker {
+  width: 270px;
+  display: flex;
+  justify-content: space-between!important;
+}
+
+.ALModal-addedItems {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.ALModal-addedItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  margin: 0 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.ALModal-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.ALModal-buttons span {
+  margin: 7px auto;
+}
+
+.ALbtn {
+  color: white;
+  font-weight: 700;
+  width: 200px;
+  margin: auto 3px;
+}

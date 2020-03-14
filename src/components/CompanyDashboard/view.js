@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon } from 'semantic-ui-react';
 import AddItem from '../_modals/AddItem';
 import AddSubscription from '../_modals/AddSubscription';
+import AddLocation from '../_modals/AddLocation';
 
 const View = ({
   company,
@@ -16,7 +17,11 @@ const View = ({
   openSubscriptionModal,
   closeSubscriptionModal,
   items,
-  createSubscription
+  createSubscription,
+  locationModalOpen,
+  openLocationModal,
+  closeLocationModal,
+  addLocation,
 }) => {
 
   return (
@@ -48,7 +53,11 @@ const View = ({
         </div>
         <div className="CompanyDashboard-panel">
           <h2>Locations</h2>
-          <div className="CompanyDashboard-add">Add location <Icon name="plus circle" /></div>
+          <div 
+            className="CompanyDashboard-add"
+            onClick={openLocationModal}>
+            Add location <Icon name="plus circle" />
+          </div>
         </div>
       </div>
       <AddItem
@@ -62,6 +71,11 @@ const View = ({
         close={closeSubscriptionModal}
         items={items}
         createSubscription={createSubscription}
+      />
+      <AddLocation
+        open={locationModalOpen}
+        close={closeLocationModal}
+        addLocation={addLocation}
       />
     </div>
   );

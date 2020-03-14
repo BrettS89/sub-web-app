@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { GET_COMPANY_DATA, CREATE_ITEM, CREATE_SUBSCRIPTION } from '../../redux/actions/types';
+import { GET_COMPANY_DATA, CREATE_ITEM, CREATE_SUBSCRIPTION, ADD_LOCATION } from '../../redux/actions/types';
 import './CompanyDashboard.css';
 import View from './view';
 import Subscription from './Components/Subscription';
 import Item from './Components/Item';
+import Location from './Components/Location';
 
 const CompanyDashboard = () => {
   const [addItemModalOpen, setAddItemModalOpen] = useState(false);
   const [addSubscriptionModalOpen, setAddSubscriptionModalOpen] = useState(false);
+  const [locationModalOpen, setLocationModalOpen] = useState(false);
   const [itemText, itemTextChange] = useState(null);
 
   const dispatch = useDispatch();
@@ -34,6 +36,14 @@ const CompanyDashboard = () => {
     });
   }
 
+  function renderLocations() {
+    return company.locations.map(l => {
+      return (
+        <Location key={l._id} location={l} />
+      );
+    });
+  }
+
   function openItemModal() {
     setAddItemModalOpen(true);
   }
@@ -48,6 +58,14 @@ const CompanyDashboard = () => {
 
   function closeSubscriptionModal() {
     setAddSubscriptionModalOpen(false);
+  }
+
+  function openLocationModal() {
+    setLocationModalOpen(true);
+  }
+
+  function closeLocationModal() {
+    setLocationModalOpen(false);
   }
 
   function onItemTextChange(e) {
@@ -73,6 +91,15 @@ const CompanyDashboard = () => {
     }
   }
 
+  function addLocation(form) {
+    console.log(form);
+    if (form.address && form.city && form.state && form.zip) {
+      dispatch({ type: ADD_LOCATION, payload: form });
+    } else {
+      alert('You must include an address, city, state, and zip');
+    }
+  }
+
   return Object.keys(company).length
     ? (
       <View
@@ -89,6 +116,11 @@ const CompanyDashboard = () => {
         createItem={createItem}
         items={company.items}
         createSubscription={createSubscription}
+        renderLocations={renderLocations}
+        locationModalOpen={locationModalOpen}
+        openLocationModal={openLocationModal}
+        closeLocationModal={closeLocationModal}
+        addLocation={addLocation}
       />
     )
     : <div>Loading...</div>

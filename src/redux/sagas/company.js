@@ -10,6 +10,7 @@ export default [
   getCompanyDataWatcher,
   createItemWatcher,
   createSubscriptionWatcher,
+  addLocationWatcher,
 ];
 
 function * getCompanyDataWatcher() {
@@ -22,6 +23,10 @@ function * createItemWatcher() {
 
 function * createSubscriptionWatcher() {
   yield takeLatest(actions.CREATE_SUBSCRIPTION, createSubscriptionHandler);
+}
+
+function * addLocationWatcher() {
+  yield takeLatest(actions.ADD_LOCATION, addLocationHandler);
 }
 
 function * getCompanyDataHandler() {
@@ -84,5 +89,21 @@ function * createSubscriptionHandler({ payload }) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
     alert('There was an error creating this subscription.');
     console.log('createSubscriptionHandler error: ', e.message);
+  }
+}
+
+function * addLocationHandler({ payload }) {
+  try {
+    yield put({ type: actions.APP_IS_LOADING });
+    const company = yield select(companyState);
+    const companyClone = _.cloneDeep(company);
+    const { location } = yield call(api.addLocation, payload);
+    companyClone.locations.push(location);
+    yield put({ type: actions.SET_COMPANY_DATA, payload: companyClone });
+    yield put({ type: actions.APP_IS_NOT_LOADING });
+  } catch(e) {
+    yield put({ type: actions.APP_IS_NOT_LOADING });
+    alert('There was an error creating this item.');
+    console.log('createItemHandler error: ', e.message);
   }
 }

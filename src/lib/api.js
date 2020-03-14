@@ -230,8 +230,18 @@ export async function createSubscription(body) {
   return response.data;
 }
 
-export async function addLocation() {
-
+export async function addLocation(body) {
+  const res = await fetch(`${URI}/location/create`, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': getToken(),
+    },
+    body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
 }
 
 export async function publishCompany() {
