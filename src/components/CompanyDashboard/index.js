@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { GET_COMPANY_DATA, CREATE_ITEM } from '../../redux/actions/types';
+import { GET_COMPANY_DATA, CREATE_ITEM, CREATE_SUBSCRIPTION } from '../../redux/actions/types';
 import './CompanyDashboard.css';
 import View from './view';
 import Subscription from './Components/Subscription';
@@ -66,7 +66,11 @@ const CompanyDashboard = () => {
 
   function createSubscription(form) {
     form.company = company.company._id;
-    console.log(form);
+    if (form.plan.length > 0) {
+      dispatch({ type: CREATE_SUBSCRIPTION, payload: form });
+    } else {
+      alert('You must include items in your subscription');
+    }
   }
 
   return Object.keys(company).length

@@ -67,7 +67,6 @@ const AddSubscription = ({ open, close, items, createSubscription }) => {
 
   function onCreateSubscription(e) {
     e.preventDefault();
-    console.log(frequency);
     
     const plan = itemsToAdd.map(i => {
       const itm = items.find(it => it.name === i.name);
@@ -83,6 +82,7 @@ const AddSubscription = ({ open, close, items, createSubscription }) => {
       plan,
     };
     createSubscription(form);
+    closeModal();
   }
 
   return (
@@ -103,7 +103,7 @@ const AddSubscription = ({ open, close, items, createSubscription }) => {
             className="ASModal-input"
           >
             <Icon name='tag' />
-            <input maxLength="5" />
+            <input maxLength="17" />
           </Input>
           <Input
             iconPosition='left'
@@ -113,7 +113,7 @@ const AddSubscription = ({ open, close, items, createSubscription }) => {
             className="ASModal-input"
           >
             <Icon name='dollar sign' />
-            <input maxLength="5" />
+            <input />
           </Input>
           <Dropdown
             name="frequency"

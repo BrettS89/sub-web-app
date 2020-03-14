@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Subscription = ({ subscription }) => {
-  console.log(subscription);
   function displayItems() {
     return subscription.plan.map(i => {
       return (

@@ -216,8 +216,18 @@ export async function createItem(body) {
   return response.data;
 }
 
-export async function createSubscription() {
-
+export async function createSubscription(body) {
+  const res = await fetch(`${URI}/subscription/create`, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': getToken(),
+    },
+    body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
 }
 
 export async function addLocation() {

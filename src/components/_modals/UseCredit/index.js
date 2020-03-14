@@ -1,5 +1,4 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Modal, Icon } from 'semantic-ui-react';
 import './UseCredit.css';
 
@@ -16,8 +15,9 @@ const UseCreditModal = ({ modalOpen, closeModal, useCredit }) => {
         <div className="AIModal-buttons">
           <button
             className="button lsbtn"
+            onClick={useCredit}
           >
-            Create item
+            Use credit
           </button>
         </div>
       </Modal.Content>
