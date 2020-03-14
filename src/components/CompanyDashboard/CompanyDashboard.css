@@ -5,10 +5,24 @@
   margin-bottom: 50px;
 }
 
-.CompanyDashboard h1 {
-  text-align: center;
+.CompanyDashboard-header {
   margin-bottom: 50px;
-  padding-bottom: 8px;
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CompanyDashboard-header-right {
+  display: flex;
+  flex-direction: row;
+}
+
+.CompanyDashboard-header-right button{
+  width: 170px;
+  color: white;
+  font-weight: 700;
+  margin: 0 5px;
 }
 
 .CompanyDashboard-main {
@@ -94,5 +108,14 @@
 }
 
 .CompanyDashboard-Location {
-  
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.CompanyDashboard-Location span {
+  margin-bottom: 2px;
+  font-weight: 600;
 }

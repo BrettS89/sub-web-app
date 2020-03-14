@@ -5,7 +5,7 @@ import './AddLocation.css';
 const AddSubscription = ({ open, close, addLocation }) => {
   function onAddLocation(e) {
     e.preventDefault();
-    console.log(e.target.address);
+
     const form = {
       address: e.target.address.value,
       city: e.target.city.value,
@@ -34,7 +34,7 @@ const AddSubscription = ({ open, close, addLocation }) => {
             className="ALModal-input"
           >
             <Icon name='point' />
-            <input name="address" maxLength="17" />
+            <input name="address" />
           </Input>
           <Input
             iconPosition='left'

@@ -245,5 +245,25 @@ export async function addLocation(body) {
 }
 
 export async function publishCompany() {
+  const res = await fetch(`${URI}/company/publish`, {
+    method: 'PATCH',
+    headers: {
+      'authorization': getToken(),
+    },
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
 
+export async function unpublishCompany() {
+  const res = await fetch(`${URI}/company/unpublish`, {
+    method: 'PATCH',
+    headers: {
+      'authorization': getToken(),
+    },
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
 }

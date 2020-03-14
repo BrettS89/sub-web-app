@@ -8,6 +8,7 @@ const View = ({
   company,
   renderItems,
   renderSubscriptions,
+  renderLocations,
   openItemModal,
   closeItemModal,
   addItemModalOpen,
@@ -22,11 +23,33 @@ const View = ({
   openLocationModal,
   closeLocationModal,
   addLocation,
+  publishCompany,
+  unpublishCompany,
 }) => {
+
+  function renderPublish() {
+    if (company.published) {
+      return <button className="button" onClick={unpublishCompany}>Unpublish</button>
+    }
+    return <button className="button" onClick={publishCompany}>Publish</button>
+  }
+
+  function renderAddBankAccount() {
+    if (!company.stripeId) {
+      return <button className="button">Add Bank account</button>
+    }
+    return <button className="button">Bank account added</button>
+  }
 
   return (
     <div className="CompanyDashboard">
-      <h1>{company.name}</h1>
+      <div className="CompanyDashboard-header">
+        <h1>{company.name}</h1>
+        <div className="CompanyDashboard-header-right">
+          {renderAddBankAccount()}
+          {renderPublish()}
+        </div>
+      </div>
       <div className="CompanyDashboard-main">
         <div className="CompanyDashboard-panel">
           <div className="CompanyDashboard-section">
@@ -58,6 +81,7 @@ const View = ({
             onClick={openLocationModal}>
             Add location <Icon name="plus circle" />
           </div>
+          {renderLocations()}
         </div>
       </div>
       <AddItem

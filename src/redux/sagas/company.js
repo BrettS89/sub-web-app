@@ -11,6 +11,8 @@ export default [
   createItemWatcher,
   createSubscriptionWatcher,
   addLocationWatcher,
+  publishCompanyWatcher,
+  unpublishCompanyWatcher,
 ];
 
 function * getCompanyDataWatcher() {
@@ -27,6 +29,14 @@ function * createSubscriptionWatcher() {
 
 function * addLocationWatcher() {
   yield takeLatest(actions.ADD_LOCATION, addLocationHandler);
+}
+
+function * publishCompanyWatcher() {
+  yield takeLatest(actions.PUBLISH_COMPANY, publishCompanyHandler);
+}
+
+function * unpublishCompanyWatcher() {
+  yield takeLatest(actions.UNPUBLISH_COMPANY, unpublishCompanyHandler);
 }
 
 function * getCompanyDataHandler() {
@@ -105,5 +115,37 @@ function * addLocationHandler({ payload }) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
     alert('There was an error creating this item.');
     console.log('createItemHandler error: ', e.message);
+  }
+}
+
+function * publishCompanyHandler() {
+  try {
+    yield put({ type: actions.APP_IS_LOADING });
+    const companyData = yield select(companyState);
+    const companyClone = _.cloneDeep(companyData);
+    const { company } = yield call(api.publishCompany);
+    companyClone.company = company;
+    yield put({ type: actions.SET_COMPANY_DATA, payload: companyClone });
+    yield put({ type: actions.APP_IS_NOT_LOADING });
+  } catch(e) {
+    yield put({ type: actions.APP_IS_NOT_LOADING });
+    alert(e.message);
+    console.log('publishCompanyHandler error: ', e.message);
+  }
+}
+
+function * unpublishCompanyHandler() {
+  try {
+    yield put({ type: actions.APP_IS_LOADING });
+    const companyData = yield select(companyState);
+    const companyClone = _.cloneDeep(companyData);
+    const { company } = yield call(api.unpublishCompany);
+    companyClone.company = company;
+    yield put({ type: actions.SET_COMPANY_DATA, payload: companyClone });
+    yield put({ type: actions.APP_IS_NOT_LOADING });
+  } catch(e) {
+    yield put({ type: actions.APP_IS_NOT_LOADING });
+    alert(e.message);
+    console.log('publishCompanyHandler error: ', e.message);
   }
 }

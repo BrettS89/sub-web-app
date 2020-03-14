@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Location = props => {
+const Location = ({ location: { address, city, state, zip } }) => {
   return (
-    <div>
-      Location
+    <div className="CompanyDashboard-Location">
+      <span>{address}</span>
+      <span>{city}</span>
+      <span>{state}</span>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { GET_COMPANY_DATA, CREATE_ITEM, CREATE_SUBSCRIPTION, ADD_LOCATION } from '../../redux/actions/types';
+import { GET_COMPANY_DATA, CREATE_ITEM, CREATE_SUBSCRIPTION, ADD_LOCATION, PUBLISH_COMPANY, UNPUBLISH_COMPANY } from '../../redux/actions/types';
 import './CompanyDashboard.css';
 import View from './view';
 import Subscription from './Components/Subscription';
@@ -92,12 +92,19 @@ const CompanyDashboard = () => {
   }
 
   function addLocation(form) {
-    console.log(form);
     if (form.address && form.city && form.state && form.zip) {
       dispatch({ type: ADD_LOCATION, payload: form });
     } else {
       alert('You must include an address, city, state, and zip');
     }
+  }
+
+  function publishCompany() {
+    dispatch({ type: PUBLISH_COMPANY });
+  }
+
+  function unpublishCompany() {
+    dispatch({ type: UNPUBLISH_COMPANY });
   }
 
   return Object.keys(company).length
@@ -121,6 +128,8 @@ const CompanyDashboard = () => {
         openLocationModal={openLocationModal}
         closeLocationModal={closeLocationModal}
         addLocation={addLocation}
+        publishCompany={publishCompany}
+        unpublishCompany={unpublishCompany}
       />
     )
     : <div>Loading...</div>
