@@ -33,3 +33,10 @@ export const SET_SPOT_ID = 'SET_SPOT_ID';
 export const GET_CREDITS = 'GET_CREDITS';
 export const USE_CREDIT = 'USE_CREDIT';
 export const SET_CREDITS = 'SET_CREDITS';
+
+// COMPANY
+export const GET_COMPANY_DATA = 'GET_COMPANY_DATA';
+export const SET_COMPANY_DATA = 'SET_COMPANY_DATA';
+export const CREATE_ITEM = 'CREATE_ITEM';
+export const CREATE_SUBSCRIPTION = 'CREATE_SUBSCRIPTION';
+export const PUBLISH_COMPANY = 'PUBLISH_COMPANY';

@@ -1,0 +1,89 @@
+.ASModal {
+  background-color: transparent!important;
+  padding: 0!important;
+  margin: 0!important;
+  height: auto!important;
+  width: 400px!important;
+  -webkit-box-shadow: none!important;
+  -moz-box-shadow: none!important;
+  box-shadow: none!important;
+}
+
+.ASModal-close {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.ASModal-content {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.ASModalForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.ASModal-input {
+  width: 270px!important;
+  align-items: center!important;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.ASModal-input2 {
+  width: 80px;
+  align-items: center!important;
+  justify-content: center!important;
+  margin-bottom: 10px;
+}
+
+.ASModal-add-item {
+  height: 100%!important;
+  font-size: 28px!important;
+  color: #026FD2;
+}
+
+.ASModal-item-picker {
+  width: 270px;
+  display: flex;
+  justify-content: space-between!important;
+}
+
+.ASModal-addedItems {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.ASModal-addedItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  margin: 0 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.ASModal-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.ASModal-buttons span {
+  margin: 7px auto;
+}
+
+.ASbtn {
+  color: white;
+  font-weight: 700;
+  width: 200px;
+  margin: auto 3px;
+}

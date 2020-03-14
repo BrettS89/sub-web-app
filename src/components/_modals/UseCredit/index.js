@@ -2,24 +2,22 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal, Icon } from 'semantic-ui-react';
 import './UseCredit.css';
-import {  } from '../../../redux/actions/types';
 
 const UseCreditModal = ({ modalOpen, closeModal, useCredit }) => {
   return (
-    <Modal open={modalOpen} className="UCModal">
+    <Modal open={modalOpen} className="AIModal">
       <Modal.Content>
-        <div className="UCModal-close">
+        <div className="AIModal-close">
           <Icon name="close" onClick={closeModal} />
         </div>
-        <div className="UCModal-content">
+        <div className="AIModal-content">
           Are you sure you want to redeem one credit?
         </div>
-        <div className="UCModal-buttons">
+        <div className="AIModal-buttons">
           <button
             className="button lsbtn"
-            onClick={useCredit}
           >
-            Yes
+            Create item
           </button>
         </div>
       </Modal.Content>
