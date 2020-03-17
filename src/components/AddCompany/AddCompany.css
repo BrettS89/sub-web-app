@@ -1,0 +1,41 @@
+.AddCompany {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.AddCompany h1 {
+  margin-top: 30px;
+  margin-bottom: 75px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #026FD2;
+}
+
+.AddCompany-form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  padding: 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 7px;
+}
+
+.AddCompany-signup {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddCompany-loggedin-message {
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.AddCompany-input {
+  margin: 5px 0;
+}
+
+.AddCompany-button {
+  margin-top: 15px;
+}

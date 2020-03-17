@@ -35,6 +35,7 @@ export const USE_CREDIT = 'USE_CREDIT';
 export const SET_CREDITS = 'SET_CREDITS';
 
 // COMPANY
+export const ADD_COMPANY = 'ADD_COMPANY';
 export const GET_COMPANY_DATA = 'GET_COMPANY_DATA';
 export const SET_COMPANY_DATA = 'SET_COMPANY_DATA';
 export const CREATE_ITEM = 'CREATE_ITEM';

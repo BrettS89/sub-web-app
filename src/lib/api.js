@@ -191,6 +191,20 @@ export async function useCredit(id) {
   return response.data;
 }
 
+export async function addCompany(body) {
+  const res = await fetch(`${URI}/company/create`, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': getToken(),
+    },
+    body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
 export async function getCompanyData() {
   const res = await fetch(`${URI}/company/getdashboard`, {
     headers: {

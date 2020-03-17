@@ -22,7 +22,7 @@ const Navbar = ({ drawerClickHandler, isLoggedIn }) => {
         <div className="Navbar-toggle">
           <ToggleButton click={drawerClickHandler} />
         </div>
-        <div className="Navbar-logo"><a to="/">Galactic</a></div>
+        <div className="Navbar-logo"><a to="/">Paradyse</a></div>
         <div className="Navbar-spacer" />
         <div className="Navbar-items">
           <ul>

@@ -22,12 +22,13 @@
 }
 
 .Navbar-logo {
-  font-family: 'Kanit';
+  font-family: 'Lobster', cursive;
   color: #026FD2;
   font-weight: 800;
   text-decoration: none;
-  font-Size: 2.0rem;
+  font-Size: 2.9rem;
   margin-left: .5rem;
+  letter-spacing: 1px;
 }
 
 .Navbar-spacer {

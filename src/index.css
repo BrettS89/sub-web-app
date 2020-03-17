@@ -49,5 +49,11 @@ button {
   align-items: center;
   height: 40px;
   background: #026FD2;
+  color: white;
+  font-weight: 700;
   border-radius: 50px;
+}
+
+.button:hover {
+  color: white;
 }

@@ -13,6 +13,7 @@ export default [
   addLocationWatcher,
   publishCompanyWatcher,
   unpublishCompanyWatcher,
+  addCompanyWatcher,
 ];
 
 function * getCompanyDataWatcher() {
@@ -37,6 +38,32 @@ function * publishCompanyWatcher() {
 
 function * unpublishCompanyWatcher() {
   yield takeLatest(actions.UNPUBLISH_COMPANY, unpublishCompanyHandler);
+}
+
+function * addCompanyWatcher() {
+  yield takeLatest(actions.ADD_COMPANY, addCompanyHandler)
+}
+
+function * addCompanyHandler({ payload: { form, navigate } }) {
+  try {
+    yield put({ type: actions.APP_IS_LOADING });
+    if (form.email && form.password) {
+      const { user, token } = yield call(api.register, form);
+      yield put({ type: actions.SET_USER_DATA, payload: user });
+      localStorage.setItem('token', token);
+      delete form.email;
+      delete form.firstName;
+      delete form.lastName;
+      delete form.password;
+    }
+    yield call(api.addCompany, form);
+    navigate();
+    yield put({ type: actions.APP_IS_NOT_LOADING });
+  } catch(e) {
+    yield put({ type: actions.APP_IS_NOT_LOADING });
+    alert(e.message);
+    console.log('getCompanyData error: ', e.message);
+  }
 }
 
 function * getCompanyDataHandler() {
