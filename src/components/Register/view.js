@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from 'semantic-ui-react';
+import { Input, Icon } from 'semantic-ui-react';
 
 const View = ({ submit, registrationError }) => {
   function renderRegistrationError() {
@@ -17,30 +17,46 @@ const View = ({ submit, registrationError }) => {
       <form className="Register-form" onSubmit={submit}>
         <h1>Create an account</h1>
         <Input
+          iconPosition='left'
           className="Register-form-input"
           name="firstName"
           placeholder="first name"
           type="text"
-        />
+        >
+          <Icon name="address card" />
+          <input />
+        </Input>
         <Input
+          iconPosition='left'
           className="Register-form-input"
           name="lastName"
           placeholder="last name"
           type="text"
-        />
+        >
+          <Icon name="address card" />
+          <input />
+        </Input>
         <Input
+          iconPosition='left'
           className="Register-form-input"
           name="email"
           placeholder="email"
           type="email"
-        />
+        >
+          <Icon name="at" />
+          <input />
+        </Input>
         <Input
+          iconPosition='left'
           className="Register-form-input"
           name="password"
           placeholder="password"
           type="password"
           style={{ marginBottom: 0 }}
-        />
+        > 
+          <Icon name="lock" />
+          <input/>
+        </Input>
         {renderRegistrationError()}
         <button className="button Register-form-button">
           Sign up

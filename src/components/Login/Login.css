@@ -55,3 +55,14 @@
 .Login-register:hover {
   cursor: pointer;
 }
+
+
+@media(max-width: 500px) {
+  .Login-form {
+    width: 330px;
+  }
+
+  .Login-form-input {
+    width: 250px!important;
+  }
+}

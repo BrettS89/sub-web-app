@@ -38,3 +38,13 @@
   margin-top: 8px;
   color: red;
 }
+
+@media(max-width: 500px) {
+  .Register-form {
+    width: 330px;
+  }
+
+  .Register-form-input {
+    width: 250px!important;
+  }
+}

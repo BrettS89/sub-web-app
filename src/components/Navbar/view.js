@@ -10,6 +10,13 @@ const Navbar = ({ drawerClickHandler, isLoggedIn }) => {
     return <Link to="/usecredits">Use Subscriptions</Link>;
   }
 
+  function displayUseOrFind() {
+    if (!isLoggedIn) {
+      return <Link to="/spots">Find Subscriptions</Link>;
+    }
+    return <Link to="/usecredits">Use Subscriptions</Link>;
+  }
+
   function displayAccount() {
     if (isLoggedIn) {
       return <Link to="/account">Account</Link>;
@@ -29,6 +36,11 @@ const Navbar = ({ drawerClickHandler, isLoggedIn }) => {
             <li><Link to="/spots">Find Subscriptions</Link></li>
             <li>{displayAccount()}</li>
             <li className="Navbar-login-button">{displayUseOrLogin()}</li>
+          </ul>
+        </div>
+        <div className="Navbar-items2">
+          <ul>
+            <li className="button Navbar-responsive-button">{displayUseOrFind()}</li>
           </ul>
         </div>
       </nav>
