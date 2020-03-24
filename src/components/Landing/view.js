@@ -51,9 +51,9 @@ const View = props => {
       </section>
 
       <section className="Landing-browse">
-        <button className="Landing-button">
+        <Link to="/spots" className="Landing-button">
           Search Subscription Plans
-        </button>
+        </Link>
       </section>
 
       <section className="Landing-featured">

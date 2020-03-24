@@ -19,12 +19,6 @@ const CancelModal = ({ open, closeModal, cancelUserSubscription }) => {
           >
             Yes
           </button>
-          <button
-            className="button lsbtn"
-            onClick={closeModal}
-          >
-            No
-          </button>
         </div>
       </Modal.Content>
     </Modal>

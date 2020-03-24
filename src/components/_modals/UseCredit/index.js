@@ -4,15 +4,15 @@ import './UseCredit.css';
 
 const UseCreditModal = ({ modalOpen, closeModal, useCredit }) => {
   return (
-    <Modal open={modalOpen} className="AIModal">
+    <Modal open={modalOpen} className="UCModal">
       <Modal.Content>
-        <div className="AIModal-close">
+        <div className="UCModal-close">
           <Icon name="close" onClick={closeModal} />
         </div>
-        <div className="AIModal-content">
+        <div className="UCModal-content">
           Are you sure you want to redeem one credit?
         </div>
-        <div className="AIModal-buttons">
+        <div className="UCModal-buttons">
           <button
             className="button lsbtn"
             onClick={useCredit}

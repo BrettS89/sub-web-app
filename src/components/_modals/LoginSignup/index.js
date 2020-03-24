@@ -21,7 +21,7 @@ const LoginSignupModal = props => {
 
   return (
     <Modal open={open} className="LSModal">
-      <Modal.Content>
+      <Modal.Content className="LSModal-main">
         <div className="LSModal-close">
           <Icon name="close" onClick={closeModal} />
         </div>
@@ -38,7 +38,7 @@ const LoginSignupModal = props => {
           <span>or</span>
           <button
             className="button lsbtn"
-            onClick={() => navigate('signup')}
+            onClick={() => navigate('register')}
           >
             Sign up
           </button>

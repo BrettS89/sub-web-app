@@ -45,6 +45,11 @@ const Account = props => {
     setUserSubscriptionId(null);
   }
 
+  function logout() {
+    localStorage.clear();
+    window.location = "/";
+  }
+
   return (
     <View
       renderUserSubs={renderUserSubs}
@@ -53,6 +58,7 @@ const Account = props => {
       modalOpen={modalOpen}
       closeModal={closeModal}
       cancelUserSubscription={cancelUserSubscription}
+      logout={logout}
     />
   );
 };

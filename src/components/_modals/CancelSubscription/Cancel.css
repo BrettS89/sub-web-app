@@ -36,5 +36,10 @@
   color: white;
   font-weight: 700;
   width: 150px;
-  margin: auto 3px;
+}
+
+@media(max-width: 460px) {
+  .Cancel {
+    width: 340px!important;
+  }
 }

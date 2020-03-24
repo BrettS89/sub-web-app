@@ -1,7 +1,7 @@
 import React from 'react';
 import CancelSubscriptionModal from '../_modals/CancelSubscription';
 
-const View = ({ renderUserSubs, user, navigateToAddCard, modalOpen, closeModal, cancelUserSubscription }) => {
+const View = ({ renderUserSubs, user, navigateToAddCard, modalOpen, closeModal, cancelUserSubscription, logout }) => {
   function renderPaymentText() {
     if (user.stripeId) {
       return (
@@ -36,7 +36,7 @@ const View = ({ renderUserSubs, user, navigateToAddCard, modalOpen, closeModal, 
       <h1>Your Subscriptions</h1>
       {renderUserSubs()}
       <div className="Account-logout">
-        <span>Log out</span>
+        <span onClick={logout}>Log out</span>
       </div>
       <CancelSubscriptionModal
         open={modalOpen}

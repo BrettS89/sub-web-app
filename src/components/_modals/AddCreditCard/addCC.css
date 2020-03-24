@@ -39,3 +39,9 @@
   width: 150px;
   margin: auto 3px;
 }
+
+@media(max-width: 460px) {
+  .addCC {
+    width: 340px!important;
+  }
+}

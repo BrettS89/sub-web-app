@@ -33,6 +33,7 @@ function * loginHandler({ payload: { form, navigate } }) {
     yield put({ type: actions.SET_LOGIN_ERROR, payload: null });
     const { token, user } = yield call(api.login, form);
     localStorage.setItem('token', token);
+    yield put({ type: actions.GET_CREDITS });
     yield put({ type: actions.SET_USER_DATA, payload: user });
     yield put({ type: actions.APP_IS_NOT_LOADING });
     navigate();
