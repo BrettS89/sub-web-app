@@ -4,7 +4,7 @@ const Item = ({ plan: { item, quantity }, frequency }) => {
   return (
     <div className="Sub-item">
       <span>{item.name}:</span>
-      <span>{quantity} {frequency}</span>
+      <span>{quantity} per {frequency}</span>
     </div>
   );
 };

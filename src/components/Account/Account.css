@@ -44,6 +44,7 @@
   width: 300px;
   height: 180px;
   object-fit: cover;
+  border-radius: 3px;
 }
 
 .SubCard-name {
@@ -62,4 +63,20 @@
 
 .SubCard-cancel:hover {
   cursor: pointer;
+}
+
+.Account-logout {
+  margin-top: 20px;
+}
+
+.Account-logout span{
+  font-size: 16px;
+  font-weight: 700;
+  color: #026FD2;
+}
+
+@media(max-width: 500px) {
+  .Account h1 {
+    font-size: 24px;
+  }
 }

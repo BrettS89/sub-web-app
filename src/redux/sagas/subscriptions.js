@@ -69,6 +69,7 @@ function * subscribeHandler({ payload: { data, navigate } }) {
     navigate();
   } catch(e) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
+    alert(e.message);
     console.log('subscribeHandle error', e.message);
   }
 }

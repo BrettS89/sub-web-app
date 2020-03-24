@@ -27,7 +27,7 @@ const Login = props => {
       props.history.push('spot/' + spotId);
       dispatch({ type: SET_SPOT_ID, payload: null });
     } else {
-      props.history.push('/account');
+      props.history.push('/usecredits');
     }
   }
 

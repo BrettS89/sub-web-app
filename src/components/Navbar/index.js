@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CHECK_IS_LOGGED_IN, GET_CREDITS } from '../../redux/actions/types';
 import './Navbar.css';
@@ -17,6 +17,7 @@ const Navbar = ({ drawerClickHandler, history }) => {
     <View
       drawerClickHandler={drawerClickHandler}
       isLoggedIn={isLoggedIn._id}
+      hasCompany={isLoggedIn.company}
     />
   );
 };

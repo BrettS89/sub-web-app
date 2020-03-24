@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCashRegister } from '@fortawesome/free-solid-svg-icons';
+import { faCashRegister, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const ItemCredit = ({ item, openModal, subscriptionName }) => {
   return (
@@ -8,7 +8,7 @@ const ItemCredit = ({ item, openModal, subscriptionName }) => {
       <h3>{item.name}</h3>
       <h4>{item.credits} remaining</h4>
       <div className="ItemCredit-redeem">
-        <FontAwesomeIcon icon={faCashRegister} onClick={() => openModal(subscriptionName, item._id, item.credits)} />
+        <FontAwesomeIcon icon={faCheckCircle} onClick={() => openModal(subscriptionName, item._id, item.credits)} />
         <span>Redeem</span>
       </div>
     </div>

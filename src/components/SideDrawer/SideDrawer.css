@@ -13,7 +13,6 @@
 .SideDrawer {
   height: 100%;
   background-color: #fff;
-  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -26,6 +25,7 @@
 
 .SideDrawer.open {
   transform: translateX(0);
+  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
 }
 
 .SideDrawer ul {
@@ -43,6 +43,23 @@
   font-size: 1.2rem;
 }
 
+.SideDrawer-logo {
+  margin: 20px auto!important;
+}
+
+.SideDrawer-logo a {
+  font-family: 'Lobster', cursive;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.SideDrawer span {
+  color: #026FD2;
+  font-weight: 500;
+}
 
 @media(min-width: 701px) {
   .SideDrawer {

@@ -12,10 +12,12 @@ import AddCreditCard from '../components/AddCreditCard';
 import UseCredits from '../components/UseCredits';
 import CompanyDashboard from '../components/CompanyDashboard';
 import AddCompany from '../components/AddCompany';
+import Contact from '../components/Contact';
 
 export default () => {
   return (
     <Switch>
+      <Route exact path="/contact" component={Contact} />
       <Route exact path="/company/add" component={AddCompany} />
       <Route exact path="/company/dashboard" component={CompanyDashboard} />
       <Route exact path="/usecredits" component={UseCredits} />

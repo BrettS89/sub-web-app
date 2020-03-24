@@ -12,6 +12,7 @@
 
 .UseCredits p {
   margin-bottom: 30px;
+  font-style: italic;
 }
 
 .UseCredits-active {
@@ -23,10 +24,11 @@
 .UseCredits-subscription {
   display: flex;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 
 .UseCredits-subscription h2 {
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   width: 100%;
   padding: 10px 20px;
   border-radius: 50px;
@@ -69,4 +71,67 @@
 .ItemCredit-redeem span {
   font-size: 14px;
   margin-top: 5px;
+}
+
+@media(max-width: 620px) {
+  .UseCredits h1{
+    font-size: 24px;
+    margin: 20px auto;
+  }
+
+  .ItemCredit-redeem span {
+    font-size: 11px;
+  }
+
+  .UseCredits p {
+    text-align: center;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    font-style: italic;
+  }
+  
+  .UseCredits-active {
+    width: 400px;
+  }
+
+  .UseCredits-subscription h2 {
+    padding: 7px 20px;
+    font-size: 18px;
+    color: white;
+  }
+
+  .ItemCredit {
+    height: 72px;
+  }
+
+  .ItemCredit h3{
+    width: 100px;
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .ItemCredit h4{
+    width: 100px;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .ItemCredit-redeem {
+    font-size: 30px;
+  }
+}
+
+@media(max-width: 450px) {
+  .UseCredits-subscription {
+    margin-bottom: 40px;
+  }
+
+  .UseCredits-active {
+    width: 345px;
+  }
+
+  .ItemCredit-redeem {
+    font-size: 30px;
+  }
 }

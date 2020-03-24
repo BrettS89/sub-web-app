@@ -81,7 +81,7 @@ const View = props => {
         <div>
           <span><Link to="/company/add" style={{ color: 'white' }}>For businesses</Link></span>
           <span>About</span>
-          <span>Contact</span>
+          <span><Link to="/contact" style={{ color: 'white' }}>Contact</Link></span>
         </div>
         <div className="Landing-footer-logo">
           Paradyse

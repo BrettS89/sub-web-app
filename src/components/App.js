@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import store from  '../redux';
 import Navbar from './Navbar';
@@ -30,21 +29,19 @@ function App() {
   }
 
   return (
-    <Provider store={store()}>
-      <BrowserRouter>
-        <div className="App">
-          <Navbar drawerClickHandler={drawerToggleClickHandler} />
-          <SideDrawer show={sideDrawerOpen} />
-          {backdrop}
-          <main style={{ marginTop: 65, height: '100%' }}>
-            <Router />
-          </main>
-          <LoadingModal />
-        </div>
-        <LoginSignupModal />
-        <AddCreditCardModal />
-      </BrowserRouter>
-    </Provider>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar drawerClickHandler={drawerToggleClickHandler} />
+        <SideDrawer show={sideDrawerOpen} close={backdropClickHandler} />
+        {backdrop}
+        <main style={{ marginTop: 65, height: '100%' }}>
+          <Router />
+        </main>
+        <LoadingModal />
+      </div>
+      <LoginSignupModal />
+      <AddCreditCardModal />
+    </BrowserRouter>
   );
 }
 

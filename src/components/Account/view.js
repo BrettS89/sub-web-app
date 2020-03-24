@@ -35,6 +35,9 @@ const View = ({ renderUserSubs, user, navigateToAddCard, modalOpen, closeModal, 
       
       <h1>Your Subscriptions</h1>
       {renderUserSubs()}
+      <div className="Account-logout">
+        <span>Log out</span>
+      </div>
       <CancelSubscriptionModal
         open={modalOpen}
         closeModal={closeModal}

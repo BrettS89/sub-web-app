@@ -15,7 +15,6 @@
 
 .Subscription-content-content {
   padding: 30px;
-  width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,13 +88,15 @@
   padding-bottom: 0;
   font-weight: 700;
   font-size: 18px;
-  border-bottom: 1px solid #e0e0e0;
+  /* border-bottom: 1px solid #e0e0e0; */
 }
 
 .Sub-item {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
+  align-items: center;
+  height: 35px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .Sub-link {
@@ -111,4 +112,56 @@
   align-items: center;
   justify-content: center;
   padding: 0 25px;
+}
+
+@media(max-width: 580px) {
+  .Subscription-content {
+    margin-bottom: 0;
+  }
+
+  .Subscription-content h1 {
+    font-size: 24px;
+  }
+
+  .Subscription-content img{
+    width: 400px;
+    height: 220px;
+  }
+
+  .Sub {
+    width: 400px;
+  }
+}
+
+@media(max-width: 440px) {
+  .Subscription {
+    padding-top: 15px;
+  }
+
+  .Subscription-content img{
+    width: 350px;
+    height: 200px;
+  }
+
+  .Sub {
+    width: 350px;
+  }
+
+  .Sub-header {
+    padding: 10px 25px;
+    color: white;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  .Sub {
+    margin-bottom: 50px;
+  }
+
+  .Sub-link {
+    margin-top: 10px;
+    font-size: 18px;
+
+  }
 }

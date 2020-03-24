@@ -25,19 +25,10 @@ const Subscription = ({ sub, selectSubscription }) => {
       </div>
       <div className="Sub-content">
         {renderItems()}
-        {/* <div className="Sub-item">
-          <span>Coffee:</span>
-          <span>5 per week</span>
-        </div>
-        <div className="Sub-item">
-          <span>Coffee:</span>
-          <span>5 per week</span>
-        </div> */}
       </div>
       <div className="Sub-link">
         <span onClick={() => selectSubscription(sub)}>
           Subscribe
-          <FontAwesomeIcon style={{ fontSize: 26, marginLeft: 6 }} icon={faChevronCircleRight} />
         </span>
       </div>
     </div>
