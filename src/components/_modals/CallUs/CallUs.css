@@ -1,0 +1,49 @@
+.CallUs {
+  background-color: transparent!important;
+  padding: 0!important;
+  margin: 0!important;
+  height: auto!important;
+  width: 400px!important;
+  -webkit-box-shadow: none!important;
+  -moz-box-shadow: none!important;
+  box-shadow: none!important;
+}
+
+.CallUs-close {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 24px;
+}
+
+.CallUs-content {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.CallUs-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  margin-bottom: 15px;
+}
+.CallUs-buttons span {
+  font-size: 16px;
+  font-weight: 600;
+  padding-bottom: 4px;
+}
+
+.lsbtn {
+  color: white;
+  font-weight: 700;
+  width: 150px;
+  margin: auto 3px;
+}
+
+@media(max-width: 460px) {
+  .CallUs {
+    width: 340px!important;
+  }
+}

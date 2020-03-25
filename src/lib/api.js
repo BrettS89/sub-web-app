@@ -281,3 +281,16 @@ export async function unpublishCompany() {
   errorThrower(res, response);
   return response.data;
 }
+
+export async function contactUs(body) {
+  const res = await fetch(`${URI}/user/contact`, {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
