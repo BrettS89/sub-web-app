@@ -36,9 +36,16 @@ const View = ({
 
   function renderAddBankAccount() {
     if (!company.stripeId) {
-      return <button className="button">Add Bank account</button>
+      return <button
+              className="button"
+              onClick={()=> window.open("https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GtMSHh3dlyDgHtFW59Bcmwcy3QC5J4TT&scope=read_write", "_blank")}
+            >
+              Add Bank account
+            </button>
     }
-    return <button className="button">Bank account added</button>
+    return (
+      <span className="bankaccount-added"><Icon name="check circle" size="big" /> Bank account added</span>
+    )
   }
 
   return (

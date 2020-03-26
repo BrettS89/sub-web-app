@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { GET_COMPANY_DATA, CREATE_ITEM, CREATE_SUBSCRIPTION, ADD_LOCATION, PUBLISH_COMPANY, UNPUBLISH_COMPANY } from '../../redux/actions/types';
+import qs from 'qs';
+import { GET_COMPANY_DATA, CREATE_ITEM, CREATE_SUBSCRIPTION, ADD_LOCATION, PUBLISH_COMPANY, UNPUBLISH_COMPANY, APP_IS_LOADING } from '../../redux/actions/types';
+import { addBankAccount } from '../../lib/api';
 import './CompanyDashboard.css';
 import View from './view';
 import Subscription from './Components/Subscription';
 import Item from './Components/Item';
 import Location from './Components/Location';
 
-const CompanyDashboard = () => {
+const CompanyDashboard = props => {
   const [addItemModalOpen, setAddItemModalOpen] = useState(false);
   const [addSubscriptionModalOpen, setAddSubscriptionModalOpen] = useState(false);
   const [locationModalOpen, setLocationModalOpen] = useState(false);
@@ -17,7 +19,19 @@ const CompanyDashboard = () => {
   const company = useSelector(state => state.company.company);
 
   useEffect(() => {
-    dispatch({ type: GET_COMPANY_DATA });
+    dispatch({ type: APP_IS_LOADING });
+    async function saveStripeId() {
+      const authCode = qs.parse(props.location.search, { ignoreQueryPrefix: true }).code;
+      if (authCode) {
+        try {
+          await addBankAccount({ authCode });
+        } catch(e) {
+          console.log(e);
+        }
+      }
+      dispatch({ type: GET_COMPANY_DATA });
+    }
+    saveStripeId();
   }, []);
 
   function renderItems() {
