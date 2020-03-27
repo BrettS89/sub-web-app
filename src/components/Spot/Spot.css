@@ -114,6 +114,10 @@
   padding: 0 25px;
 }
 
+.Sub-link span:hover {
+  cursor: pointer;
+}
+
 @media(max-width: 580px) {
   .Subscription-content {
     margin-bottom: 0;

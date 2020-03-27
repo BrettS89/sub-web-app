@@ -95,6 +95,7 @@ function * cancelUserSubscriptionHandler({ payload }) {
       return s._id !== _id;
     });
     yield put({ type: actions.SET_USER_SUBSCRIPTIONS, payload: filteredUserSubscriptions });
+    yield put({ type: actions.GET_CREDITS });
     yield put({ type: actions.APP_IS_NOT_LOADING });
   } catch(e) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
