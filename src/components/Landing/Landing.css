@@ -100,6 +100,10 @@
   font-weight: 700;
 }
 
+.Landing-button:hover {
+  color: #fff;
+}
+
 .Landing-browse {
   display: flex;
   justify-content: center;

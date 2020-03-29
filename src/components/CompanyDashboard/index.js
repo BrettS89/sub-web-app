@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
-import { GET_COMPANY_DATA, CREATE_ITEM, CREATE_SUBSCRIPTION, ADD_LOCATION, PUBLISH_COMPANY, UNPUBLISH_COMPANY, APP_IS_LOADING } from '../../redux/actions/types';
+import { GET_COMPANY_DATA, CREATE_ITEM, CREATE_SUBSCRIPTION, ADD_LOCATION, PUBLISH_COMPANY, UNPUBLISH_COMPANY, APP_IS_LOADING, DELETE_ITEM } from '../../redux/actions/types';
 import { addBankAccount } from '../../lib/api';
 import './CompanyDashboard.css';
 import View from './view';
@@ -37,7 +37,7 @@ const CompanyDashboard = props => {
   function renderItems() {
     return company.items.map(i => {
       return (
-        <Item key={i._id} item={i} />
+        <Item key={i._id} item={i} deleteItem={deleteItem} />
       );
     });
   }
@@ -111,6 +111,10 @@ const CompanyDashboard = props => {
     } else {
       alert('You must include an address, city, state, and zip');
     }
+  }
+
+  function deleteItem(item) {
+    dispatch({ type: DELETE_ITEM, payload: item });
   }
 
   function publishCompany() {

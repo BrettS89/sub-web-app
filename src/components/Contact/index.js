@@ -16,7 +16,14 @@ const Contact = props => {
       alert('Please include and email and message');
       return;
     }
-    const { message } = await contactUs(form);
+    try {
+      const { message } = await contactUs(form);
+      alert('Your message was sent. We\'ll be in touch');
+    } catch(e) {
+      alert('There was a problem sending your message. Please try again');
+    }
+    
+    props.history.push('/');
   }
 
   return (

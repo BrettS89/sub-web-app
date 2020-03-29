@@ -13,10 +13,12 @@ import UseCredits from '../components/UseCredits';
 import CompanyDashboard from '../components/CompanyDashboard';
 import AddCompany from '../components/AddCompany';
 import Contact from '../components/Contact';
+import SubscriptionReport from '../components/SubscriptionReport';
 
 export default () => {
   return (
     <Switch>
+      <Route exact path="/company/subscriptionreport" component={SubscriptionReport} />
       <Route exact path="/contact" component={Contact} />
       <Route exact path="/company/add" component={AddCompany} />
       <Route exact path="/company/dashboard" component={CompanyDashboard} />

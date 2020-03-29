@@ -25,7 +25,7 @@ const Navbar = ({ drawerClickHandler, isLoggedIn, hasCompany }) => {
 
   function renderDashboardLink() {
     if (hasCompany) {
-      return <li><Link to="company/dashboard">Company Dashboard</Link></li>
+      return <li><Link to="/company/dashboard">Company Dashboard</Link></li>
     }
   }
 

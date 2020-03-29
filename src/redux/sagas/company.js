@@ -14,6 +14,7 @@ export default [
   publishCompanyWatcher,
   unpublishCompanyWatcher,
   addCompanyWatcher,
+  deleteItemWatcher,
 ];
 
 function * getCompanyDataWatcher() {
@@ -42,6 +43,10 @@ function * unpublishCompanyWatcher() {
 
 function * addCompanyWatcher() {
   yield takeLatest(actions.ADD_COMPANY, addCompanyHandler)
+}
+
+function * deleteItemWatcher() {
+  yield takeLatest(actions.DELETE_ITEM, deleteItemHandler);
 }
 
 function * addCompanyHandler({ payload: { form, navigate } }) {
@@ -174,5 +179,22 @@ function * unpublishCompanyHandler() {
     yield put({ type: actions.APP_IS_NOT_LOADING });
     alert(e.message);
     console.log('publishCompanyHandler error: ', e.message);
+  }
+}
+
+function * deleteItemHandler({ payload }) {
+  try {
+    yield put({ type: actions.APP_IS_LOADING });
+    const companyData = yield select(companyState);
+    const companyClone = _.cloneDeep(companyData);
+    const { item } = yield call(api.deleteItem, payload);
+    const newItems = companyClone.items.filter(i => i._id !== item);
+    companyClone.items = newItems;
+    yield put({ type: actions.SET_COMPANY_DATA, payload: companyClone });
+    yield put({ type: actions.APP_IS_NOT_LOADING });
+  } catch(e) {
+    yield put({ type: actions.APP_IS_NOT_LOADING });
+    alert(e.message);
+    console.log('deleteItemHandler error: ', e.message);
   }
 }
