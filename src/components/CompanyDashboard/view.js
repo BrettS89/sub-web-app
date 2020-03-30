@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
 import AddItem from '../_modals/AddItem';
 import AddSubscription from '../_modals/AddSubscription';
@@ -51,7 +52,10 @@ const View = ({
   return (
     <div className="CompanyDashboard">
       <div className="CompanyDashboard-header">
-        <h1>{company.name}</h1>
+        <div className="CompanyDashboard-header-left">
+          <h1>{company.name}</h1>
+          <Link to="/company/subscriptionreport">Subscription report</Link>
+        </div>
         <div className="CompanyDashboard-header-right">
           {renderAddBankAccount()}
           {renderPublish()}

@@ -13,6 +13,17 @@
   align-items: center;
 }
 
+.CompanyDashboard-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.CompanyDashboard-header-left a{
+  margin-left: 15px;
+  padding-bottom: 7px;
+  color: #026FD2;
+}
+
 .CompanyDashboard-header-right {
   display: flex;
   flex-direction: row;
