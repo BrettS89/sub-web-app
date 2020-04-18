@@ -78,6 +78,7 @@ function * addCreditCardHandler({ payload: { form, navigate } }) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
   } catch(e) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
+    alert(e.message);
     console.log('addCreditCardHandler error: ', e);
   }
 }

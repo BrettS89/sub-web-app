@@ -4,6 +4,7 @@ import { Icon } from 'semantic-ui-react';
 import AddItem from '../_modals/AddItem';
 import AddSubscription from '../_modals/AddSubscription';
 import AddLocation from '../_modals/AddLocation';
+import { strpieClientId } from '../../config';
 
 const View = ({
   company,
@@ -39,7 +40,7 @@ const View = ({
     if (!company.stripeId) {
       return <button
               className="button"
-              onClick={()=> window.open("https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_GtMSHh3dlyDgHtFW59Bcmwcy3QC5J4TT&scope=read_write", "_blank")}
+              onClick={()=> window.open(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${strpieClientId}&scope=read_write`, "_blank")}
             >
               Add Bank account
             </button>

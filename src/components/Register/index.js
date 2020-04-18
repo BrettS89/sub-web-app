@@ -12,8 +12,8 @@ const Register = props => {
   function submitForm(e) {
     e.preventDefault();
     const form = {
-      firstName: e.target.firstName.value,
-      lastName: e.target.lastName.value,
+      // firstName: e.target.firstName.value,
+      // lastName: e.target.lastName.value,
       email: e.target.email.value,
       password: e.target.password.value,
     };

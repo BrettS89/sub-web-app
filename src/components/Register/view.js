@@ -16,7 +16,7 @@ const View = ({ submit, registrationError }) => {
     <div className="Register">
       <form className="Register-form" onSubmit={submit}>
         <h1>Create an account</h1>
-        <Input
+        {/* <Input
           iconPosition='left'
           className="Register-form-input"
           name="firstName"
@@ -35,12 +35,12 @@ const View = ({ submit, registrationError }) => {
         >
           <Icon name="address card" />
           <input />
-        </Input>
+        </Input> */}
         <Input
           iconPosition='left'
           className="Register-form-input"
           name="email"
-          placeholder="email"
+          placeholder="Email"
           type="email"
         >
           <Icon name="at" />
@@ -50,7 +50,7 @@ const View = ({ submit, registrationError }) => {
           iconPosition='left'
           className="Register-form-input"
           name="password"
-          placeholder="password"
+          placeholder="Password"
           type="password"
           style={{ marginBottom: 0 }}
         > 

@@ -15,7 +15,7 @@ const finalPath = (path, str) => path.replace('*', str);
 
 export async function get(path, auth) {
   const res = await fetch(`${URI}/${path}`, {
-    method: 'get',
+    method: 'GET',
     headers: {
       authorization: auth ? getToken() : '',
     },
@@ -63,7 +63,7 @@ export async function getSubscription(id) {
 
 export async function login(body) {
   const res = await fetch(`${URI}/user/login`, {
-    method: 'post',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -76,7 +76,7 @@ export async function login(body) {
 
 export async function register(body) {
   const res = await fetch(`${URI}/user/register`, {
-    method: 'post',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -89,9 +89,8 @@ export async function register(body) {
 
 export async function isLoggedIn() {
   const res = await fetch(`${URI}/user/isloggedin`, {
-    method: 'get',
+    method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
       'authorization': getToken(),
     },
   });
@@ -102,7 +101,7 @@ export async function isLoggedIn() {
 
 export async function subscribe(body) {
   const res = await fetch(`${URI}/usersubscription/create`, {
-    method: 'post',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'authorization': getToken(),
@@ -116,7 +115,7 @@ export async function subscribe(body) {
 
 export async function getUserSubscriptions() {
   const res = await fetch(`${URI}/usersubscription/get`, {
-    method: 'get',
+    method: 'GET',
     headers: {
       'authorization': getToken(),
     }
@@ -193,7 +192,7 @@ export async function useCredit(id) {
 
 export async function addCompany(body) {
   const res = await fetch(`${URI}/company/create`, {
-    method: 'post',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'authorization': getToken(),
@@ -230,7 +229,7 @@ export async function getCompanySubscriptionReport() {
 
 export async function createItem(body) {
   const res = await fetch(`${URI}/item/create`, {
-    method: 'post',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'authorization': getToken(),
@@ -257,7 +256,7 @@ export async function deleteItem(id) {
 
 export async function createSubscription(body) {
   const res = await fetch(`${URI}/subscription/create`, {
-    method: 'post',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'authorization': getToken(),
@@ -271,7 +270,7 @@ export async function createSubscription(body) {
 
 export async function addLocation(body) {
   const res = await fetch(`${URI}/location/create`, {
-    method: 'post',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'authorization': getToken(),
