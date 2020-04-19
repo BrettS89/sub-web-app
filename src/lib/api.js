@@ -190,6 +190,13 @@ export async function useCredit(id) {
   return response.data;
 }
 
+export async function getUploadPhotoUrl(name, type) {
+  const res = await fetch(`${URI}/company/getuploadphotourl?name=${name}&type=${type}`);
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
 export async function addCompany(body) {
   const res = await fetch(`${URI}/company/create`, {
     method: 'POST',

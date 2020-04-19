@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Icon, Input, Dropdown, Form } from 'semantic-ui-react';
+import { Modal, Icon, Input, Dropdown, Form, TextArea } from 'semantic-ui-react';
 import './AddSubscription.css';
 
 const AddSubscription = ({ open, close, items, createSubscription }) => {
@@ -67,7 +67,6 @@ const AddSubscription = ({ open, close, items, createSubscription }) => {
 
   function onCreateSubscription(e) {
     e.preventDefault();
-    
     const plan = itemsToAdd.map(i => {
       const itm = items.find(it => it.name === i.name);
       return {
@@ -80,6 +79,7 @@ const AddSubscription = ({ open, close, items, createSubscription }) => {
       price: e.target.price.value,
       billingFrequency: frequency === 'monthly' ? 'month' : 'week',
       plan,
+      description: e.target.description.value,
     };
     createSubscription(form);
     closeModal();
@@ -94,7 +94,7 @@ const AddSubscription = ({ open, close, items, createSubscription }) => {
         <div className="ASModal-content">
           Create a subscription
         </div>
-        <form className="ASModalForm" onSubmit={onCreateSubscription}>
+        <Form className="ASModalForm" onSubmit={onCreateSubscription}>
           <Input
             iconPosition='left'
             name="name"
@@ -125,6 +125,13 @@ const AddSubscription = ({ open, close, items, createSubscription }) => {
             options={frequencyOptions}
             className="ASModal-input"
           />
+          <TextArea
+            className="ASModal-input"
+            rows={3}
+            name="description"
+            placeholder="Description / notes (optional)"
+            style={{ marginBottom: 10 }}
+          />
           <div className="ASModal-item-picker">
             <Dropdown
               placeholder='Item'
@@ -153,7 +160,7 @@ const AddSubscription = ({ open, close, items, createSubscription }) => {
               Create subscription
             </button>
           </div>
-        </form>
+        </Form>
       </Modal.Content>
     </Modal>
   );

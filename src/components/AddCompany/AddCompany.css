@@ -36,6 +36,16 @@
   margin: 5px 0;
 }
 
+.AddCompany-upload {
+  color: #026FD2;
+  font-weight: 700;
+  margin: 7px 0;
+}
+
+.AddCompany-upload:hover {
+  cursor: pointer;
+}
+
 .AddCompany-button {
   margin-top: 15px;
 }

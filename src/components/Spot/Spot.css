@@ -99,6 +99,12 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
+.Sub-description {
+  margin-top: 7px;
+  font-size: 13px;
+  padding: 0 25px;
+}
+
 .Sub-link {
   margin-top: 10px;
   text-align: center;

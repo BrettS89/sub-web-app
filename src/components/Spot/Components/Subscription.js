@@ -17,6 +17,16 @@ const Subscription = ({ sub, selectSubscription }) => {
     });
   }
 
+  function renderDescription() {
+    if (sub.description) {
+      return (
+        <div className="Sub-description">
+          {sub.description}
+        </div>
+      );
+    }
+  }
+
   return (
     <div className="Sub">
       <div className="Sub-header">
@@ -26,6 +36,7 @@ const Subscription = ({ sub, selectSubscription }) => {
       <div className="Sub-content">
         {renderItems()}
       </div>
+      {renderDescription()}
       <div className="Sub-link">
         <span onClick={() => selectSubscription(sub)}>
           Subscribe

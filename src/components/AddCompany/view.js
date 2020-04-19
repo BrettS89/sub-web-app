@@ -1,7 +1,8 @@
 import React from 'react';
 import { Input } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 
-const View = ({ isLoggedIn, addCompany }) => {
+const View = ({ isLoggedIn, addCompany, inputFile, selectImage, imageAdded }) => {
   function renderSignup() {
     if (!isLoggedIn) {
       return (
@@ -48,11 +49,27 @@ const View = ({ isLoggedIn, addCompany }) => {
     }
   }
 
+  function renderImageButton() {
+    if (!imageAdded) {
+      return (
+        <div className="AddCompany-upload" onClick={() => inputFile.current.click()}>
+          <Icon name="image" size="large" />
+          <span>Upload a photo</span>
+        </div>
+      );
+    }
+    return (
+      <div className="AddCompany-upload">
+        <Icon name="check" size="large" />
+        <span>Photo added</span>
+      </div>
+    )
+  }
+
   function submitForm(e) {
     e.preventDefault();
     const form = {
       name: e.target.name.value,
-      photo: e.target.photo.value,
       tags: e.target.tags.value,
     };
 
@@ -78,18 +95,20 @@ const View = ({ isLoggedIn, addCompany }) => {
             placeholder="Company name"
             className="AddCompany-input"
           />
-          <Input
+          {/* <Input
             name="photo"
             type="text"
             placeholder="Photo"
             className="AddCompany-input"
-          />
+          /> */}
           <Input
             name="tags"
             type="text"
             placeholder="Tags: coffee, restaurant, bar, etc."
             className="AddCompany-input"
           />
+          <input onChange={selectImage} type='file' accept='image/*' id='file' ref={inputFile} style={{display: 'none'}}/>
+          {renderImageButton()}
           <button className="button AddCompany-button">
             Add Company
           </button>
