@@ -75,6 +75,10 @@
   color: #026FD2;
 }
 
+.Account-logout span:hover {
+  cursor: pointer;
+}
+
 @media(max-width: 500px) {
   .Account h1 {
     font-size: 24px;
