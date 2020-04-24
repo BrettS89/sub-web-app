@@ -63,7 +63,7 @@ const View = props => {
           <SpotCard
             name="Lackawanna Coffee"
             address1="Jersey City 07302"
-            image="http://haveanight.com/assets/images/uploads/2017/June/20170613193925_southhousebarapproved_600.jpg"
+            image="https://images.squarespace-cdn.com/content/v1/589cbe71e58c62750d51757b/1533735656592-C4VKLQA2QOHWRL01BND4/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/Lackawanna-Jersey+City+Coffee+Shops+Shoot-6747.jpg?format=2500w"
           />
           <SpotCard
             name="Buddy Whos"

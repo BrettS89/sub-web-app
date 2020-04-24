@@ -113,7 +113,7 @@ const AddSubscription = ({ open, close, items, createSubscription }) => {
             className="ASModal-input"
           >
             <Icon name='dollar sign' />
-            <input />
+            <input step="0.01" />
           </Input>
           <Dropdown
             name="frequency"
