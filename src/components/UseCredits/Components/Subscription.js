@@ -10,6 +10,7 @@ const Subscription = ({ subscription, openModal }) => {
           item={i}
           openModal={openModal}
           subscriptionName={subscription.name}
+          userSubscriptionId={subscription.userSubscriptionId}
         />
       );
     });

@@ -178,12 +178,13 @@ export async function getCredits() {
   return response.data;
 }
 
-export async function useCredit(id) {
-  const res = await fetch(`${URI}/credit/use/${id}`, {
+export async function useCredit(data) {
+  const res = await fetch(`${URI}/credit/use/`, {
     method: 'PATCH',
     headers: {
       'authorization': getToken(),
     },
+    body: JSON.stringify(data),
   });
   const response = await res.json();
   errorThrower(res, response);

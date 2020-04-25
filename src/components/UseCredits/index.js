@@ -11,6 +11,7 @@ const UseCredits = props => {
   const [subscriptionName, setSubscriptionName] = useState(null);
   const [itemId, setItemId] = useState(null);
   const [credits, setCredits] = useState(null);
+  const [userSubscriptionId, setUserSubscriptionId] = useState(null);
   const creditsState = useSelector(state => state.subscription.credits);
 
   function renderSubscriptions() {
@@ -25,11 +26,12 @@ const UseCredits = props => {
     });
   }
 
-  function openModal(subName, itmId, creds) {
+  function openModal(subName, itmId, creds, userSubId) {
     setItemId(itmId);
     setSubscriptionName(subName);
     setCredits(creds);
     setModalOpen(true);
+    setUserSubscriptionId(userSubId);
   }
 
   function closeModal() {
@@ -37,11 +39,12 @@ const UseCredits = props => {
     setSubscriptionName(null);
     setCredits(null);
     setModalOpen(false);
+    setUserSubscriptionId(null);
   }
 
   function useCredit() {
     if (credits > 0) {
-      dispatch({ type: USE_CREDIT, payload: { subscriptionName, itemId } });
+      dispatch({ type: USE_CREDIT, payload: { subscriptionName, itemId, userSubscriptionId } });
       closeModal();
     }
   }

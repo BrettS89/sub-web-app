@@ -98,10 +98,16 @@ const CompanyDashboard = props => {
 
   function createSubscription(form) {
     form.company = company.company._id;
-    if (form.plan.length > 0) {
-      dispatch({ type: CREATE_SUBSCRIPTION, payload: form });
-    } else {
+    if (form.price < 1) {
+      alert('Subscription must be at least one dollar');
+    } else if (form.price > 50 && form.billingFrequency === 'week') {
+      alert('Weekly subscriptions cannot exceed $50')
+    } else if (form.price > 100 && form.billingFrequency === 'month') {
+      alert('Monthly subscriptions cannot exceed $100');
+    } else if (form.plan.length === 0) {
       alert('You must include items in your subscription');
+    } else {
+      dispatch({ type: CREATE_SUBSCRIPTION, payload: form });
     }
   }
 

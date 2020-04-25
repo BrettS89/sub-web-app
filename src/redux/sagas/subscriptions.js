@@ -113,10 +113,11 @@ function * getCreditsHandler() {
   }
 }
 
-function * useCreditHandler({ payload: { subscriptionName, itemId } }) {
+function * useCreditHandler({ payload: { subscriptionName, itemId, userSubscriptionId } }) {
   try {
     yield put({ type: actions.APP_IS_LOADING });
-    yield call(api.useCredit, itemId);
+    const data = { itemId, userSubscriptionId };
+    yield call(api.useCredit, data);
     const credits = yield select(creditsState);
     const subscriptions = _.cloneDeep(credits);
 
