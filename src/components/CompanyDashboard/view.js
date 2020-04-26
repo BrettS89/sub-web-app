@@ -4,6 +4,7 @@ import { Icon } from 'semantic-ui-react';
 import AddItem from '../_modals/AddItem';
 import AddSubscription from '../_modals/AddSubscription';
 import AddLocation from '../_modals/AddLocation';
+import CancelSubscription from '../_modals/CompanyCancelSubscription';
 import { strpieClientId } from '../../config';
 
 const View = ({
@@ -27,6 +28,9 @@ const View = ({
   addLocation,
   publishCompany,
   unpublishCompany,
+  cancelSubscriptionModalOpen,
+  closeCancelSubscriptionModal,
+  cancelSubscription,
 }) => {
 
   function renderPublish() {
@@ -112,6 +116,11 @@ const View = ({
         open={locationModalOpen}
         close={closeLocationModal}
         addLocation={addLocation}
+      />
+      <CancelSubscription
+        open={cancelSubscriptionModalOpen}
+        closeModal={closeCancelSubscriptionModal}
+        cancelSubscription={cancelSubscription}
       />
     </div>
   );

@@ -183,6 +183,7 @@ export async function useCredit(data) {
     method: 'PATCH',
     headers: {
       'authorization': getToken(),
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
   });
@@ -270,6 +271,18 @@ export async function createSubscription(body) {
       'authorization': getToken(),
     },
     body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function cancelSubscription(id) {
+  const res = await fetch(`${URI}/subscription/cancel/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'authorization': getToken(),
+    },
   });
   const response = await res.json();
   errorThrower(res, response);

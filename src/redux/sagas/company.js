@@ -15,6 +15,7 @@ export default [
   unpublishCompanyWatcher,
   addCompanyWatcher,
   deleteItemWatcher,
+  cancelSubscriptionWatcher
 ];
 
 function * getCompanyDataWatcher() {
@@ -47,6 +48,10 @@ function * addCompanyWatcher() {
 
 function * deleteItemWatcher() {
   yield takeLatest(actions.DELETE_ITEM, deleteItemHandler);
+}
+
+function * cancelSubscriptionWatcher() {
+  yield takeLatest(actions.CANCEL_SUBSCRIPTION, cancelSubscriptionHandler);
 }
 
 function * addCompanyHandler({ payload: { form, navigate } }) {
@@ -124,7 +129,7 @@ function * createSubscriptionHandler({ payload }) {
 			};
 		});
     companyClone.subscriptions = subscriptionArr;
-    
+
     yield put({ type: actions.SET_COMPANY_DATA, payload: companyClone });
     yield put({ type: actions.APP_IS_NOT_LOADING });
   } catch(e) {
@@ -196,5 +201,23 @@ function * deleteItemHandler({ payload }) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
     alert(e.message);
     console.log('deleteItemHandler error: ', e.message);
+  }
+}
+
+function * cancelSubscriptionHandler({ payload: { subscriptionToCancel, closeCancelSubscriptionModal } }) {
+  try {
+    yield put({ type: actions.APP_IS_LOADING });
+    yield call(api.cancelSubscription, subscriptionToCancel);
+    const companyData = yield select(companyState);
+    const companyClone = _.cloneDeep(companyData);
+    const newSubscriptions =
+      companyClone.subscriptions.filter(s => s._id !== subscriptionToCancel);
+    companyClone.subscriptions = newSubscriptions;
+    yield put({ type: actions.SET_COMPANY_DATA, payload: companyClone });
+    closeCancelSubscriptionModal();
+    yield put({ type: actions.APP_IS_NOT_LOADING });
+  } catch(e) {
+    yield put({ type: actions.APP_IS_NOT_LOADING });
+    console.log('cancelSubscriptionHandler error: ', e);
   }
 }

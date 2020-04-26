@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Subscription = ({ subscription }) => {
+const Subscription = ({ subscription, cancelSubscription }) => {
   function displayItems() {
     return subscription.plan.map(i => {
       return (
@@ -28,6 +28,12 @@ const Subscription = ({ subscription }) => {
           {displayItems()}
         </div>
       </div>
+      <span
+        className="CompanyDashboard-cancelsubscription-text"
+        onClick={() => cancelSubscription(subscription._id)}
+      >
+        Cancel subscription
+      </span>
     </div>
   );
 };

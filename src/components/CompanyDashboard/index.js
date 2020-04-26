@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
-import { GET_COMPANY_DATA, CREATE_ITEM, CREATE_SUBSCRIPTION, ADD_LOCATION, PUBLISH_COMPANY, UNPUBLISH_COMPANY, APP_IS_LOADING, DELETE_ITEM } from '../../redux/actions/types';
+import { GET_COMPANY_DATA, CREATE_ITEM, CREATE_SUBSCRIPTION, ADD_LOCATION, PUBLISH_COMPANY, UNPUBLISH_COMPANY, APP_IS_LOADING, DELETE_ITEM, CANCEL_SUBSCRIPTION } from '../../redux/actions/types';
 import { addBankAccount } from '../../lib/api';
 import './CompanyDashboard.css';
 import View from './view';
@@ -13,6 +13,8 @@ const CompanyDashboard = props => {
   const [addItemModalOpen, setAddItemModalOpen] = useState(false);
   const [addSubscriptionModalOpen, setAddSubscriptionModalOpen] = useState(false);
   const [locationModalOpen, setLocationModalOpen] = useState(false);
+  const [cancelSubscriptionModalOpen, setCancelSubscriptionModalOpen] = useState(false);
+  const [subscriptionToCancel, setSubscriptionToCancel] = useState(null);
   const [itemText, itemTextChange] = useState(null);
 
   const dispatch = useDispatch();
@@ -45,7 +47,11 @@ const CompanyDashboard = props => {
   function renderSubscriptions() {
     return company.subscriptions.map(s => {
       return (
-        <Subscription key={s._id} subscription={s} />
+        <Subscription
+          key={s._id}
+          subscription={s}
+          cancelSubscription={openCancelSubscriptionModal}
+        />
       );
     });
   }
@@ -80,6 +86,16 @@ const CompanyDashboard = props => {
 
   function closeLocationModal() {
     setLocationModalOpen(false);
+  }
+
+  function openCancelSubscriptionModal(subscriptionId) {
+    setSubscriptionToCancel(subscriptionId);
+    setCancelSubscriptionModalOpen(true);
+  }
+
+  function closeCancelSubscriptionModal() {
+    setSubscriptionToCancel(null);
+    setCancelSubscriptionModalOpen(false);
   }
 
   function onItemTextChange(e) {
@@ -131,6 +147,10 @@ const CompanyDashboard = props => {
     dispatch({ type: UNPUBLISH_COMPANY });
   }
 
+  function cancelSubscription() {
+    dispatch({ type: CANCEL_SUBSCRIPTION, payload: { subscriptionToCancel, closeCancelSubscriptionModal } });
+  }
+
   return Object.keys(company).length
     ? (
       <View
@@ -154,6 +174,9 @@ const CompanyDashboard = props => {
         addLocation={addLocation}
         publishCompany={publishCompany}
         unpublishCompany={unpublishCompany}
+        cancelSubscriptionModalOpen={cancelSubscriptionModalOpen}
+        closeCancelSubscriptionModal={closeCancelSubscriptionModal}
+        cancelSubscription={cancelSubscription}
       />
     )
     : <div>Loading...</div>
