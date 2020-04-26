@@ -122,6 +122,13 @@
   }
 }
 
+.UseCredits-cancelled {
+  font-size: 12px;
+  color: red;
+  margin-top: 3px;
+  padding: 0 5px;
+}
+
 @media(max-width: 450px) {
   .UseCredits-subscription {
     margin-bottom: 40px;
