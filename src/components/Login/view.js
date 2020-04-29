@@ -19,7 +19,7 @@ const View = ({ submit, loginError, goToRegister }) => {
           iconPosition='left'
           className="Login-form-input"
           name="email"
-          placeholder="email"
+          placeholder="Email"
           type="email"
         >
           <Icon name='at' />
@@ -29,7 +29,7 @@ const View = ({ submit, loginError, goToRegister }) => {
         iconPosition='left'
           className="Login-form-input"
           name="password"
-          placeholder="password"
+          placeholder="Password"
           type="password"
           style={{ marginBottom: 0 }}
         >
