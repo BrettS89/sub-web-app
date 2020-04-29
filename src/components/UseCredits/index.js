@@ -45,7 +45,6 @@ const UseCredits = props => {
   function useCredit() {
     if (credits > 0) {
       dispatch({ type: USE_CREDIT, payload: { subscriptionName, itemId, userSubscriptionId, closeModal } });
-      // closeModal();
     }
   }
 

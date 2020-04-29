@@ -13,7 +13,7 @@
   display: flex;
   justify-content: flex-end;
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .LSModal-content {
@@ -33,10 +33,10 @@
   margin: 7px auto;
 }
 
-.lsbtn {
-  color: white;
+.lsbtn2 {
+  color: #026FD2;
   font-weight: 700;
-  width: 150px;
+  /* width: 150px; */
   margin: auto 3px;
 }
 

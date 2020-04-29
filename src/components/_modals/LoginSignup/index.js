@@ -37,7 +37,7 @@ const LoginSignupModal = props => {
           </button>
           <span>or</span>
           <button
-            className="button lsbtn"
+            className="lsbtn2"
             onClick={() => navigate('register')}
           >
             Sign up
