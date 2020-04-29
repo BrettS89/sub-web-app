@@ -113,7 +113,7 @@ function * getCreditsHandler() {
   }
 }
 
-function * useCreditHandler({ payload: { subscriptionName, itemId, userSubscriptionId } }) {
+function * useCreditHandler({ payload: { subscriptionName, itemId, userSubscriptionId, closeModal } }) {
   try {
     yield put({ type: actions.APP_IS_LOADING });
     const data = { itemId, userSubscriptionId };
@@ -133,8 +133,10 @@ function * useCreditHandler({ payload: { subscriptionName, itemId, userSubscript
 
     yield put({ type: actions.SET_CREDITS, payload: subscriptions });
     yield put({ type: actions.APP_IS_NOT_LOADING });
+    closeModal();
   } catch(e) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
+    alert(e);
     console.log('useCreditHandler', e);
   }
 }
