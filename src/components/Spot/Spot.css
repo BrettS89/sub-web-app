@@ -10,11 +10,11 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .Subscription-content-content {
-  padding: 30px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,11 +145,11 @@
 
 @media(max-width: 440px) {
   .Subscription {
-    padding-top: 15px;
+    padding-top: 0px;
   }
 
   .Subscription-content img{
-    width: 350px;
+    width: 100%;
     height: 200px;
   }
 

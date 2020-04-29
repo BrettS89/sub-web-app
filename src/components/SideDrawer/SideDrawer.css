@@ -61,6 +61,10 @@
   font-weight: 500;
 }
 
+.SideDrawer span:hover {
+  cursor: pointer;
+}
+
 @media(min-width: 701px) {
   .SideDrawer {
     display: none;

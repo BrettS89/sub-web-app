@@ -8,7 +8,7 @@ const ItemCredit = ({ item, openModal, subscriptionName, userSubscriptionId }) =
       <h3>{item.name}</h3>
       <h4>{item.credits} remaining</h4>
       <div className="ItemCredit-redeem">
-        <FontAwesomeIcon icon={faStar} style={{ fontSize: 28 }} onClick={() => openModal(subscriptionName, item._id, item.credits, userSubscriptionId)} />
+        <FontAwesomeIcon icon={faStar} style={{ fontSize: 26 }} onClick={() => openModal(subscriptionName, item._id, item.credits, userSubscriptionId)} />
         <span>Redeem</span>
       </div>
     </div>
