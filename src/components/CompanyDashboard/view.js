@@ -5,7 +5,7 @@ import AddItem from '../_modals/AddItem';
 import AddSubscription from '../_modals/AddSubscription';
 import AddLocation from '../_modals/AddLocation';
 import CancelSubscription from '../_modals/CompanyCancelSubscription';
-import { strpieClientId } from '../../config';
+import { redirectURI, strpieClientId, stripeState } from '../../config';
 
 const View = ({
   company,
@@ -44,7 +44,8 @@ const View = ({
     if (!company.stripeId) {
       return <button
               className="button"
-              onClick={()=> window.open(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${strpieClientId}&scope=read_write`, "_blank")}
+              // onClick={()=> window.open(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${strpieClientId}&scope=read_write`, "_blank")}
+              onClick={()=> window.open(`https://connect.stripe.com/express/oauth/authorize?client_id=${strpieClientId}&state=${'stonecold'}`)}
             >
               Add Bank account
             </button>
