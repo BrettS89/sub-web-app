@@ -14,10 +14,14 @@ import CompanyDashboard from '../components/CompanyDashboard';
 import AddCompany from '../components/AddCompany';
 import Contact from '../components/Contact';
 import SubscriptionReport from '../components/SubscriptionReport';
+import TermsAndConditions from '../components/TermsAndConditions';
+import PrivacyPolicy from '../components/PrivacyPolicy';
 
 export default () => {
   return (
     <Switch>
+      <Route exact path="/privacypolicy" component={PrivacyPolicy} />
+      <Route exact path="/user/termsandconditions" component={TermsAndConditions} />
       <Route exact path="/company/subscriptionreport" component={SubscriptionReport} />
       <Route exact path="/contact" component={Contact} />
       <Route exact path="/company/add" component={AddCompany} />

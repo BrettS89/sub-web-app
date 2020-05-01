@@ -36,6 +36,7 @@ const Login = props => {
       submit={handleSubmit}
       loginError={loginError}
       goToRegister={goToRegister}
+      navigateTo={props.history.push}
     />
   );
 };

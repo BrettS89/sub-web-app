@@ -34,6 +34,7 @@ const Register = props => {
     <View
       registrationError={registrationError}
       submit={submitForm}
+      navigateTo={props.history.push}
     />
   );
 };

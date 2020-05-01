@@ -56,6 +56,20 @@
   cursor: pointer;
 }
 
+.TC {
+  margin-top: 30px;
+  font-size: 12px;
+}
+
+.LoginLink {
+  color: #026FD2;
+  font-weight: 700;
+}
+
+.LoginLink:hover {
+  cursor: pointer;
+}
+
 
 @media(max-width: 500px) {
   .Login-form {

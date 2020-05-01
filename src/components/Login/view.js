@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Icon } from 'semantic-ui-react';
 
-const View = ({ submit, loginError, goToRegister }) => {
+const View = ({ submit, loginError, goToRegister, navigateTo }) => {
   function renderLoginError() {
     if (loginError) {
       return (
@@ -40,6 +40,12 @@ const View = ({ submit, loginError, goToRegister }) => {
         <button className="button Login-form-button">
           Login
         </button>
+        <div className="TC">
+          <div>By logging in you agree to our</div>
+          <span className="LoginLink" onClick={() => navigateTo('/user/termsandconditions')}>Terms and conditions </span>
+          <span>and </span>
+          <span className="LoginLink" onClick={() => navigateTo('/privacypolicy')}>Privacy Policy</span>
+        </div>
       </form>
       <div>
         <div className="Login-or">or</div>

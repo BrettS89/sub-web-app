@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Icon } from 'semantic-ui-react';
 
-const View = ({ submit, registrationError }) => {
+const View = ({ submit, registrationError, navigateTo }) => {
   function renderRegistrationError() {
     if (registrationError) {
       return (
@@ -61,6 +61,12 @@ const View = ({ submit, registrationError }) => {
         <button className="button Register-form-button">
           Sign up
         </button>
+        <div className="TC">
+          <div>By logging in you agree to our</div>
+          <span className="RegisterLink" onClick={() => navigateTo('/user/termsandconditions')}>Terms and conditions </span>
+          <span>and </span>
+          <span className="RegisterLink" onClick={() => navigateTo('/privacypolicy')}>Privacy Policy</span>
+        </div>
       </form>
     </div>
   );
