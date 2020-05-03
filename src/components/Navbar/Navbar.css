@@ -91,7 +91,6 @@
   font-weight: 500;
 }
 
-
 @media(max-width: 700px) {
   .Navbar-items {
     display: none;

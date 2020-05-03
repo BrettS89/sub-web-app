@@ -1,11 +1,13 @@
 .Register {
-  height: 90%;
+  background-color: #F7F7F7;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .Register-form {
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;

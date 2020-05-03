@@ -48,12 +48,18 @@ const UseCredits = props => {
     }
   }
 
+  function navigateToSpots() {
+    props.history.push('/spots');
+  }
+
   return (
     <View
       renderSubscriptions={renderSubscriptions}
       closeModal={closeModal}
       modalOpen={modalOpen}
       useCredit={useCredit}
+      credits={creditsState}
+      navigateToSpots={navigateToSpots}
     />
   );
 };
