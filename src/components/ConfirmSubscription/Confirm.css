@@ -15,7 +15,22 @@
   margin-top: 30px;
   width: 300px;
   height: 180px;
+  border-radius: 3px;
   object-fit: cover;
+}
+
+.Confirm-backbutton {
+  width: 300px;
+  /* margin-left: 20px; */
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  color: #026FD2;
+}
+
+.Confirm-backbutton div:hover {
+  cursor: pointer;
 }
 
 .Confirm h4 {

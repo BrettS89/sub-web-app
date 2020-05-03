@@ -29,6 +29,10 @@ const AddCreditCard = props => {
     dispatch({ type: ADD_CREDIT_CARD, payload: { form, navigate } });
   }
 
+  function goBack() {
+    props.history.goBack();
+  }
+
   function navigate() {
     if (spotId) {
       props.history.push('/spot/' + spotId);
@@ -58,6 +62,7 @@ const AddCreditCard = props => {
       user={user}
       onInputChange={onInputChange}
       onFormSubmit={addEditCreditCard}
+      goBack={goBack}
     />
   );
 };

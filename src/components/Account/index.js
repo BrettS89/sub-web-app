@@ -18,6 +18,10 @@ const Account = props => {
     }
   },[]);
 
+  function goBack() {
+    props.history.goBack();
+  }
+
   function navigateToAddCard() {
     props.history.push('/addcreditcard');
   }
@@ -59,6 +63,7 @@ const Account = props => {
       closeModal={closeModal}
       cancelUserSubscription={cancelUserSubscription}
       logout={logout}
+      goBack={goBack}
     />
   );
 };

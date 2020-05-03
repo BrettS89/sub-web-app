@@ -26,6 +26,10 @@ const ConfirmSubscription = props => {
     setSub();
   }, []);
 
+  function goBack() {
+    props.history.goBack();
+  }
+
   function navigate() {
     props.history.push('/usecredits');
   }
@@ -38,7 +42,7 @@ const ConfirmSubscription = props => {
   }
 
   return subscription
-    ? <View sub={subscription} confirmSubscription={confirmSubscription} />
+    ? <View sub={subscription} confirmSubscription={confirmSubscription} goBack={goBack} />
     : <div />
 };
 

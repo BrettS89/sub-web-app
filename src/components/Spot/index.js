@@ -19,6 +19,10 @@ const Subscription = props => {
     setSpot();
   }, []);
 
+  function goBack() {
+    props.history.goBack();
+  }
+
   function selectSubscription(subscription) {
     if (!user._id) {
       dispatch({ type: OPEN_LOGIN_MODAL });
@@ -34,7 +38,7 @@ const Subscription = props => {
 
   function renderView() {
     return spot
-      ? <View spot={spot} selectSubscription={selectSubscription} />
+      ? <View spot={spot} selectSubscription={selectSubscription} goBack={goBack} />
       : <div />
   }
 

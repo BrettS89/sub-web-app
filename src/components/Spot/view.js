@@ -1,7 +1,8 @@
 import React from 'react';
+import { Icon } from 'semantic-ui-react'
 import Subscription from './Components/Subscription';
 
-const View = ({ spot, selectSubscription }) => {
+const View = ({ spot, selectSubscription, goBack }) => {
   function renderSubscriptions() {
     return spot.subscriptions.map(s => {
       return (
@@ -18,6 +19,12 @@ const View = ({ spot, selectSubscription }) => {
     <div className="Subscription">
       <section className="Subscription-content">
         <img src={spot.photo} alt=""/>
+        <div className="Spot-backbutton">
+          <div onClick={goBack}>
+            <Icon name="chevron left" />
+            <span>Back</span>
+          </div>
+        </div>
         <div className="Subscription-content-content">
           <h1>{spot.name}</h1>
         </div>

@@ -1,9 +1,15 @@
 import React from 'react';
 import { Icon, Input } from 'semantic-ui-react'
 
-const View = ({ onFormSubmit, onInputChange }) => {
+const View = ({ onFormSubmit, onInputChange, goBack }) => {
   return (
     <div className="AddCreditCard">
+      <div className="Account-backbutton">
+        <div onClick={goBack}>
+          <Icon name="chevron left" />
+          <span>Back</span>
+        </div>
+      </div>
       <h1>Add or Replace Credit Card</h1>
       <div className="AddCreditCard-form-container">
         <div className="AddCreditCard-form">

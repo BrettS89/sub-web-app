@@ -1,7 +1,8 @@
 import React from 'react';
+import { Icon } from 'semantic-ui-react'
 import CancelSubscriptionModal from '../_modals/CancelSubscription';
 
-const View = ({ renderUserSubs, user, navigateToAddCard, modalOpen, closeModal, cancelUserSubscription, logout }) => {
+const View = ({ renderUserSubs, user, navigateToAddCard, modalOpen, closeModal, cancelUserSubscription, logout, goBack }) => {
   function renderPaymentText() {
     if (user.stripeId) {
       return (
@@ -22,6 +23,12 @@ const View = ({ renderUserSubs, user, navigateToAddCard, modalOpen, closeModal, 
 
   return (
     <div className="Account">
+      <div className="Account-backbutton">
+        <div onClick={goBack}>
+          <Icon name="chevron left" />
+          <span>Back</span>
+        </div>
+      </div>
       <h1>Payment Method</h1>
       <div className="Account-payment">
         {renderPaymentText()}

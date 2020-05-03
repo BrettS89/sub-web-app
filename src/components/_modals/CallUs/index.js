@@ -13,7 +13,7 @@ const CallUsModal = ({ isOpen, setCallUsModal }) => {
           Give us a call
         </div>
         <div className="CallUs-buttons">
-          <Icon name="phone square" size="big" style={{ color: '#026FD2' }} /><span>(609) 213-1708</span>
+          <Icon name="phone square" size="big" style={{ color: '#026FD2' }} /><span>(201) 455-7720</span>
         </div>
       </Modal.Content>
     </Modal>
