@@ -1,6 +1,5 @@
 import React from 'react';
-import { Input } from 'semantic-ui-react';
-import { Icon } from 'semantic-ui-react';
+import { Input, Icon, Checkbox } from 'semantic-ui-react';
 
 const View = ({ isLoggedIn, addCompany, inputFile, selectImage, imageAdded }) => {
   function renderSignup() {
@@ -10,7 +9,7 @@ const View = ({ isLoggedIn, addCompany, inputFile, selectImage, imageAdded }) =>
           <div className="AddCompany-loggedin-message">
             Create account and add company
           </div>
-          <Input
+          {/* <Input
               name="firstName"
               type="text"
               className="AddCompany-input"
@@ -21,7 +20,7 @@ const View = ({ isLoggedIn, addCompany, inputFile, selectImage, imageAdded }) =>
               type="text"
               className="AddCompany-input"
               placeholder="Last name"
-            />
+            /> */}
             <Input
               name="email"
               type="email"
@@ -54,7 +53,7 @@ const View = ({ isLoggedIn, addCompany, inputFile, selectImage, imageAdded }) =>
       return (
         <div className="AddCompany-upload" onClick={() => inputFile.current.click()}>
           <Icon name="image" size="large" />
-          <span>Upload a photo</span>
+          <span>Upload a photo of your business</span>
         </div>
       );
     }
@@ -63,7 +62,7 @@ const View = ({ isLoggedIn, addCompany, inputFile, selectImage, imageAdded }) =>
         <Icon name="check" size="large" />
         <span>Photo added</span>
       </div>
-    )
+    );
   }
 
   function submitForm(e) {
@@ -74,14 +73,13 @@ const View = ({ isLoggedIn, addCompany, inputFile, selectImage, imageAdded }) =>
     };
 
     if (!isLoggedIn) {
-      form.firstName = e.target.firstName.value;
-      form.lastName = e.target.lastName.value;
       form.email = e.target.email.value;
       form.password = e.target.password.value;
     }
-    
+
     addCompany(form);
   }
+  
   return (
     <div className="AddCompany">
       <h1>Add Your Company</h1>
@@ -95,12 +93,6 @@ const View = ({ isLoggedIn, addCompany, inputFile, selectImage, imageAdded }) =>
             placeholder="Company name"
             className="AddCompany-input"
           />
-          {/* <Input
-            name="photo"
-            type="text"
-            placeholder="Photo"
-            className="AddCompany-input"
-          /> */}
           <Input
             name="tags"
             type="text"
@@ -109,6 +101,23 @@ const View = ({ isLoggedIn, addCompany, inputFile, selectImage, imageAdded }) =>
           />
           <input onChange={selectImage} type='file' accept='image/*' id='file' ref={inputFile} style={{display: 'none'}}/>
           {renderImageButton()}
+          <div className="AddCompany-partnership">
+            <Checkbox className="AddCompany-checkbox" />
+            <div>
+              <span>I agree to the</span>
+              <span className="AddCompany-partnership-link">Partnership Agreement</span>
+              <div>
+                <span>and</span>
+                <span
+                  className="AddCompany-partnership-link"
+                  onClick={()=> window.open(`https://paradyse.app/privacypolicy`, "_blank")}
+                >
+                  Privacy Policy
+                </span>
+              </div>
+            </div>
+          </div>
+          
           <button className="button AddCompany-button">
             Add Company
           </button>

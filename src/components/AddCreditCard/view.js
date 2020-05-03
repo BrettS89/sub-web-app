@@ -18,7 +18,7 @@ const View = ({ onFormSubmit, onInputChange }) => {
             <input />
           </Input>
 
-          <Input
+          {/* <Input
             iconPosition='left'
             placeholder="MM/YY"
             className="AddCreditCard-form-input"
@@ -26,6 +26,26 @@ const View = ({ onFormSubmit, onInputChange }) => {
           >
             <Icon name='calendar' />
             <input maxLength="5" />
+          </Input> */}
+
+          <Input
+            iconPosition='left'
+            placeholder="Expiration month MM"
+            className="AddCreditCard-form-input"
+            onChange={e => onInputChange('month', e)}
+          >
+            <Icon name='calendar' />
+            <input maxLength="2" type="number" />
+          </Input>
+
+          <Input
+            iconPosition='left'
+            placeholder="Expiration year YY"
+            className="AddCreditCard-form-input"
+            onChange={e => onInputChange('year', e)}
+          >
+            <Icon name='calendar' />
+            <input maxLength="2" type="number" />
           </Input>
 
           <Input

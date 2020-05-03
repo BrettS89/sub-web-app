@@ -39,7 +39,8 @@
 .AddCompany-upload {
   color: #026FD2;
   font-weight: 700;
-  margin: 7px 0;
+  margin: 13px 0;
+  margin-bottom: 30px;
 }
 
 .AddCompany-upload:hover {
@@ -48,4 +49,31 @@
 
 .AddCompany-button {
   margin-top: 15px;
+}
+
+.AddCompany-partnership {
+  display: flex;
+  align-items: center;
+}
+
+.AddCompany-checkbox {
+  margin-right: 11px!important;
+}
+
+.AddCompany-partnership div {
+
+}
+
+.AddCompany-partnership span {
+  font-size: 13px;
+  margin-right: 4px;
+}
+
+.AddCompany-partnership-link {
+  color: #026FD2;
+  font-weight: 700;
+}
+
+.AddCompany-partnership-link:hover {
+  cursor: pointer;
 }

@@ -7,6 +7,8 @@ import './AddCreditCard.css';
 const AddCreditCard = props => {
   const [cardNumber, setCardNumber] = useState('');
   const [date, setDate] = useState('');
+  const [month, setMonth] = useState('');
+  const [year, setYear] = useState('');
   const [cvc, setCvc] = useState('');
 
   const dispatch = useDispatch();
@@ -14,9 +16,13 @@ const AddCreditCard = props => {
   const spotId = useSelector(state => state.spots.spotId);
 
   function addEditCreditCard() {
+    if (month.length !== 2 || year.length !== 2) {
+      alert('Must input correct expiration month and year');
+      return;
+    }
     const form = {
       cardNumber,
-      date,
+      date: `${month}/${year}`,
       cvc,
     };
 
@@ -37,7 +43,11 @@ const AddCreditCard = props => {
     if (type === 'cardNumber') {
       setCardNumber(val);
     } else if (type === 'date') {
-      setDate(val)
+      setDate(val);
+    } else if (type === 'month') {
+      setMonth(val);
+    } else if (type === 'year') {
+      setYear(val);
     } else if (type === 'cvc') {
       setCvc(val);
     }
