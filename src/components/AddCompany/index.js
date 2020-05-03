@@ -37,7 +37,6 @@ const AddCompany = props => {
   async function selectImage(e) {
     const image = e.target.files[0];
     setImage(e.target.files[0]);
-    // const data = await getUploadPhotoUrl(image.name, image.type);
   }
 
   return (

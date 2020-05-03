@@ -66,10 +66,15 @@ const View = ({ isLoggedIn, addCompany, inputFile, selectImage, imageAdded }) =>
   }
 
   function submitForm(e) {
+    if (!e.target.terms.checked) {
+      alert('You must agree to the partner agreement and privacy policy.');
+      return;
+    }
     e.preventDefault();
     const form = {
       name: e.target.name.value,
       tags: e.target.tags.value,
+      acceptedTerms: e.target.terms.checked,
     };
 
     if (!isLoggedIn) {
@@ -79,7 +84,7 @@ const View = ({ isLoggedIn, addCompany, inputFile, selectImage, imageAdded }) =>
 
     addCompany(form);
   }
-  
+
   return (
     <div className="AddCompany">
       <h1>Add Your Company</h1>
@@ -102,7 +107,7 @@ const View = ({ isLoggedIn, addCompany, inputFile, selectImage, imageAdded }) =>
           <input onChange={selectImage} type='file' accept='image/*' id='file' ref={inputFile} style={{display: 'none'}}/>
           {renderImageButton()}
           <div className="AddCompany-partnership">
-            <Checkbox className="AddCompany-checkbox" />
+            <Checkbox name="terms" className="AddCompany-checkbox" />
             <div>
               <span>I agree to the</span>
               <span className="AddCompany-partnership-link">Partnership Agreement</span>
