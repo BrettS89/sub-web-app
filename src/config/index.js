@@ -8,9 +8,9 @@ export const URI = 'https://paradyse-staging.herokuapp.com/api';
 // export const URI = 'https://paradyse-prod.herokuapp.com/api'
 
 // Stripe staging client ID
-export const redirectURI = 'http://http://staging.paradyse.app.s3-website-us-east-1.amazonaws.com/company/dashboard';
-export const strpieClientId = 'ca_H1GujGahdbIJfrmLlFCzgURlQMnZW1Ld';
+
+// export const stripeClientId = 'ca_H1GujGahdbIJfrmLlFCzgURlQMnZW1Ld';
 export const stripeState = 'stonecold';
 
 // Stripe prod client id
-// tbd
+export const stripeClientId = 'ca_H1GuCuTXObeA9iU0UFyzp9AoLqQyBuwK';
