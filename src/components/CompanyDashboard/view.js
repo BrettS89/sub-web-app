@@ -31,6 +31,7 @@ const View = ({
   cancelSubscriptionModalOpen,
   closeCancelSubscriptionModal,
   cancelSubscription,
+  openStripeDashboard,
 }) => {
 
   function renderPublish() {
@@ -55,12 +56,23 @@ const View = ({
     )
   }
 
+  function renderStripeDashboardLink() {
+    if (company.stripeId) {
+      return (
+        <span onClick={openStripeDashboard}>
+          Finance dashboard
+        </span>
+      );
+    }
+  }
+
   return (
     <div className="CompanyDashboard">
       <div className="CompanyDashboard-header">
         <div className="CompanyDashboard-header-left">
           <h1>{company.name}</h1>
           <Link to="/company/subscriptionreport">Subscription report</Link>
+          {renderStripeDashboardLink()}
         </div>
         <div className="CompanyDashboard-header-right">
           {renderAddBankAccount()}

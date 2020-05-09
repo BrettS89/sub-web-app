@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
 import { GET_COMPANY_DATA, CREATE_ITEM, CREATE_SUBSCRIPTION, ADD_LOCATION, PUBLISH_COMPANY, UNPUBLISH_COMPANY, APP_IS_LOADING, DELETE_ITEM, CANCEL_SUBSCRIPTION } from '../../redux/actions/types';
-import { addBankAccount } from '../../lib/api';
+import { addBankAccount, getStripeDashboardLink } from '../../lib/api';
 import './CompanyDashboard.css';
 import View from './view';
 import Subscription from './Components/Subscription';
@@ -151,6 +151,15 @@ const CompanyDashboard = props => {
     dispatch({ type: CANCEL_SUBSCRIPTION, payload: { subscriptionToCancel, closeCancelSubscriptionModal } });
   }
 
+  async function openStripeDashboard() {
+    try {
+      const { url } = await getStripeDashboardLink();
+      window.open(url);
+    } catch(e) {
+      alert(e.message);
+    }
+  }
+
   return Object.keys(company).length
     ? (
       <View
@@ -177,6 +186,7 @@ const CompanyDashboard = props => {
         cancelSubscriptionModalOpen={cancelSubscriptionModalOpen}
         closeCancelSubscriptionModal={closeCancelSubscriptionModal}
         cancelSubscription={cancelSubscription}
+        openStripeDashboard={openStripeDashboard}
       />
     )
     : <div>Loading...</div>

@@ -24,6 +24,16 @@
   color: #026FD2;
 }
 
+.CompanyDashboard-header-left span{
+  margin-left: 15px;
+  padding-bottom: 7px;
+  color: #026FD2;
+}
+
+.CompanyDashboard-header-left span:hover{
+  cursor: pointer;
+}
+
 .CompanyDashboard-header-right {
   display: flex;
   flex-direction: row;

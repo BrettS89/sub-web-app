@@ -353,3 +353,15 @@ export async function addBankAccount(body) {
   errorThrower(res, response);
   return response.data;
 }
+
+export async function getStripeDashboardLink() {
+  const res = await fetch(`${URI}/company/stripedashboardlink`, {
+    method: 'GET',
+    headers: {
+      authorization: getToken(),
+    },
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
