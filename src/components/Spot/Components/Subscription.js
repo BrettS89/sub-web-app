@@ -31,7 +31,7 @@ const Subscription = ({ sub, selectSubscription }) => {
     <div className="Sub">
       <div className="Sub-header">
         <span>{sub.name}</span>
-        <span>${sub.price} {sub.billingFrequency}</span>
+        <span>${sub.price.toFixed(2)} / {sub.billingFrequency}</span>
       </div>
       <div className="Sub-content">
         {renderItems()}
