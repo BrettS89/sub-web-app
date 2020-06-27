@@ -20,7 +20,7 @@ const Subscription = ({ subscription, cancelSubscription }) => {
     <div className="CompanyDashboard-subscription">
       <div className="name-price">
         <span className="Dash-sub-title">{subscription.name}</span>
-        <span className="Dash-sub-title">${subscription.price} per {subscription.billingFrequency}</span>
+        <span className="Dash-sub-title">${subscription.price.toFixed(2)} per {subscription.billingFrequency}</span>
       </div>
       <div>
         <h4>Items:</h4>

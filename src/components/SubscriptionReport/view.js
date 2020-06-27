@@ -12,7 +12,7 @@ const View = ({ subData: { monthlySubs, monthlyAmount, weeklySubs, weeklyAmount 
           </div>
           <div className="Subscription-content-report">
             <span>Monthly subscription revenue:</span>
-            <span className="Subscription-content-amount">${monthlyAmount}</span>
+            <span className="Subscription-content-amount">${monthlyAmount.toFixed(2)}</span>
           </div>
         </div>
         <div className="Subscription-content-subsection">
@@ -22,7 +22,7 @@ const View = ({ subData: { monthlySubs, monthlyAmount, weeklySubs, weeklyAmount 
           </div>
           <div className="Subscription-content-report">
             <span>Weekly subscription revenue:</span>
-            <span className="Subscription-content-amount">${weeklyAmount}</span>
+            <span className="Subscription-content-amount">${weeklyAmount.toFixed(2)}</span>
           </div>
         </div>
       </div>

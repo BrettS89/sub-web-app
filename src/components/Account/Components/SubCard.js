@@ -7,7 +7,7 @@ const SubCard = ({ sub, cancel }) => {
       <h3 className="SubCard-name">
         {sub.company.name}
       </h3>
-      <h4 className="SubCard-name">{sub.subscription.name} subscription ${sub.subscription.price}/{sub.subscription.billingFrequency}</h4>
+      <h4 className="SubCard-name">{sub.subscription.name} subscription ${sub.subscription.price.toFixed(2)}/{sub.subscription.billingFrequency}</h4>
       <span 
         className="SubCard-cancel"
         onClick={() => cancel(sub._id)}
