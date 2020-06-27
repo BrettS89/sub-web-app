@@ -23,6 +23,7 @@ const AddCompany = props => {
       var { url, key } = await getUploadPhotoUrl(image.name, image.type);
       const response = await imageUpload(url, image);
     } catch(e) {
+      console.log(e);
       alert(e.message);
       return;
     }

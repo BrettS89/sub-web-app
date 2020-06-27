@@ -15,7 +15,7 @@ const View = ({ sub, confirmSubscription, goBack }) => {
       </div>
       <h3>{sub.company.name}</h3>
       <h3 style={{ marginTop: 0 }}>{sub.name} subscription</h3>
-      <h3 style={{ margin: 0 }}>${sub.price} / {sub.billingFrequency}</h3>
+      <h3 style={{ margin: 0 }}>${sub.price.toFixed(2)} / {sub.billingFrequency}</h3>
 
       <button className="button" onClick={confirmSubscription}>
         Subscribe

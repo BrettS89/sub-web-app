@@ -46,7 +46,7 @@ const View = ({
       return <button
               className="button"
               // onClick={()=> window.open(`https://connect.stripe.com/oauth/authorize?response_type=code&client_id=${strpieClientId}&scope=read_write`, "_blank")}
-              onClick={()=> window.open(`https://connect.stripe.com/express/oauth/authorize?client_id=${stripeClientId}&state=${'stonecold'}`)}
+              onClick={()=> window.open(`https://connect.stripe.com/express/oauth/authorize?client_id=${stripeClientId}&state=${'stonecold'}&suggested_capabilities[]=transfers`)}
             >
               Add Bank account
             </button>
