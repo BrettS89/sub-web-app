@@ -1,4 +1,4 @@
-import { SET_USER_DATA, SET_LOGIN_ERROR, SET_REGISTRATION_ERROR } from '../actions/types';
+import { SET_USER_DATA, SET_LOGIN_ERROR, SET_REGISTRATION_ERROR, SET_FIRST_SUB_FALSE } from '../actions/types';
 
 const INITIAL_STATE = {
   loginError: null,
@@ -26,6 +26,15 @@ export default (state = INITIAL_STATE, { type, payload }) => {
         ...state,
         userData: payload,
       };
+    
+    case SET_FIRST_SUB_FALSE:
+    return {
+      ...state,
+      userData: {
+        ...state.userData,
+        firstSubscription: false,
+      },
+    };
 
     default:
       return state;

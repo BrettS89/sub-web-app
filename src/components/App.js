@@ -25,7 +25,6 @@ function App() {
   }
 
   function displayFreeBanner() {
-    console.log(showFreeBanner, showFreeBanner);
     if (showFreeBanner & showFreeBanner !== null) {
       return <FreeBanner />;
     }

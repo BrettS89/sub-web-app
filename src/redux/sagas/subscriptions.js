@@ -66,6 +66,8 @@ function * subscribeHandler({ payload: { data, navigate } }) {
     const { subscriptions } = yield call(api.getCredits);
     yield put({ type: actions.SET_CREDITS, payload: subscriptions });
     yield put({ type: actions.APP_IS_NOT_LOADING });
+    yield put({ type: actions.SET_FIRST_SUB_FALSE });
+    yield put({ type: actions.CLOSE_FREE_BANNER });
     navigate();
   } catch(e) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
