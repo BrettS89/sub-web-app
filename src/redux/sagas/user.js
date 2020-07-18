@@ -1,5 +1,5 @@
 import {
-  call, put, takeLatest, select, fork,
+  call, put, takeLatest,
 } from 'redux-saga/effects';
 import * as actions from '../actions/types';
 import * as api from '../../lib/api';

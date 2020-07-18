@@ -9,6 +9,7 @@ const ConfirmSubscription = props => {
   const [subscription, setSubscription] = useState(null);
   const dispatch = useDispatch();
   const sub = useSelector(state => state.subscription.subscription);
+  const firstSubscription = useSelector(state => state.user.userData.firstSubscription);
 
   useEffect(() => {
     async function setSub() {
@@ -42,7 +43,7 @@ const ConfirmSubscription = props => {
   }
 
   return subscription
-    ? <View sub={subscription} confirmSubscription={confirmSubscription} goBack={goBack} />
+    ? <View sub={subscription} confirmSubscription={confirmSubscription} goBack={goBack} firstSubscription={firstSubscription} />
     : <div />
 };
 
