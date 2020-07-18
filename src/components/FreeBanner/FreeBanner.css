@@ -1,0 +1,18 @@
+.FreeBanner {
+  display: flex;
+  position: fixed;
+  margin-top: 65px;
+  top: 0;
+  left: 0;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 15px;
+  background-color: #026FD2;
+  color: #fff;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.FreeBanner-close:hover {
+  cursor: pointer;
+}

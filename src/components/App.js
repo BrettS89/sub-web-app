@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import store from  '../redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Navbar from './Navbar';
 import SideDrawer from './SideDrawer';
 import Backdrop from './Backdrop';
@@ -10,8 +10,10 @@ import './App.css';
 
 import LoginSignupModal from './_modals/LoginSignup';
 import AddCreditCardModal from './_modals/AddCreditCard';
+import FreeBanner from './FreeBanner';
 
 function App() {
+  const showFreeBanner = useSelector(state => state.app.showFreeBanner);
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
 
   function drawerToggleClickHandler() {
@@ -20,6 +22,13 @@ function App() {
 
   function backdropClickHandler() {
     setSideDrawerOpen(false);
+  }
+
+  function displayFreeBanner() {
+    console.log(showFreeBanner, showFreeBanner);
+    if (showFreeBanner & showFreeBanner !== null) {
+      return <FreeBanner />;
+    }
   }
 
   let backdrop;
@@ -32,9 +41,10 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar drawerClickHandler={drawerToggleClickHandler} />
+        {displayFreeBanner()}
         <SideDrawer show={sideDrawerOpen} close={backdropClickHandler} />
         {backdrop}
-        <main style={{ marginTop: 65, height: '100%' }}>
+        <main style={{ marginTop: showFreeBanner ? 104 : 65, height: '100%' }}>
           <Router />
         </main>
         <LoadingModal />

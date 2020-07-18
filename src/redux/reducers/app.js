@@ -1,9 +1,10 @@
-import { APP_IS_LOADING, APP_IS_NOT_LOADING, OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, OPEN_CREDIT_CARD_MODAL, CLOSE_CREDIT_CARD_MODAL } from '../actions/types';
+import { APP_IS_LOADING, APP_IS_NOT_LOADING, OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, OPEN_CREDIT_CARD_MODAL, CLOSE_CREDIT_CARD_MODAL, CLOSE_FREE_BANNER, SHOW_FREE_BANNER } from '../actions/types';
 
 const INITIAL_STATE = {
   isLoading: false,
   loginModalOpen: false,
   creditCardModalOpen: false,
+  showFreeBanner: null,
 };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
@@ -43,6 +44,18 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         creditCardModalOpen: false,
+      };
+
+    case CLOSE_FREE_BANNER:
+      return {
+        ...state,
+        showFreeBanner: false,
+      };
+
+    case SHOW_FREE_BANNER:
+      return {
+        ...state,
+        showFreeBanner: true,
       };
 
     default:

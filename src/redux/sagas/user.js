@@ -33,6 +33,13 @@ function * loginHandler({ payload: { form, navigate } }) {
     yield put({ type: actions.SET_LOGIN_ERROR, payload: null });
     const { token, user } = yield call(api.login, form);
     localStorage.setItem('token', token);
+    const freeBannerLocalStorage = localStorage.getItem('showFreeBanner') === 'false';
+    const hideFreeBanner = freeBannerLocalStorage || !user.firstSubscription;
+    if (hideFreeBanner) {
+      yield put({ type: actions.CLOSE_FREE_BANNER }); 
+    } else {
+      yield put({ type: actions.SHOW_FREE_BANNER });
+    }
     yield put({ type: actions.GET_CREDITS });
     yield put({ type: actions.SET_USER_DATA, payload: user });
     yield put({ type: actions.APP_IS_NOT_LOADING });
@@ -61,11 +68,19 @@ function * registerHandler({ payload: { form, navigate } }) {
 }
 
 function * isLoggedInHandler() {
+  const freeBannerLocalStorage = localStorage.getItem('showFreeBanner') === 'false';
   try {
-    const { user } = yield call(api.isLoggedIn);
+    var { user } = yield call(api.isLoggedIn);
     yield put({ type: actions.SET_USER_DATA, payload: user });
   } catch(e) {
+    user = { firstSubscription: true };
     console.log('isLoggedInHandler error', e);
+  }
+  const hideFreeBanner = freeBannerLocalStorage || !user.firstSubscription;
+  if (hideFreeBanner) {
+    yield put({ type: actions.CLOSE_FREE_BANNER }); 
+  } else {
+    yield put({ type: actions.SHOW_FREE_BANNER });
   }
 }
 
