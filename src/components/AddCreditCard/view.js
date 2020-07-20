@@ -41,7 +41,7 @@ const View = ({ onFormSubmit, onInputChange, goBack }) => {
             onChange={e => onInputChange('month', e)}
           >
             <Icon name='calendar' />
-            <input maxLength="2" type="number" />
+            <input maxLength="2" />
           </Input>
 
           <Input
@@ -51,7 +51,7 @@ const View = ({ onFormSubmit, onInputChange, goBack }) => {
             onChange={e => onInputChange('year', e)}
           >
             <Icon name='calendar' />
-            <input maxLength="2" type="number" />
+            <input maxLength="2" />
           </Input>
 
           <Input

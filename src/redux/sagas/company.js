@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import {
-  call, put, takeLatest, select, fork,
+  call, put, takeEvery, takeLatest, select, fork,
 } from 'redux-saga/effects';
 import * as actions from '../actions/types';
 import * as api from '../../lib/api';
@@ -43,7 +43,7 @@ function * unpublishCompanyWatcher() {
 }
 
 function * addCompanyWatcher() {
-  yield takeLatest(actions.ADD_COMPANY, addCompanyHandler)
+  yield takeEvery(actions.ADD_COMPANY, addCompanyHandler)
 }
 
 function * deleteItemWatcher() {
@@ -66,7 +66,8 @@ function * addCompanyHandler({ payload: { form, navigate } }) {
       delete form.lastName;
       delete form.password;
     }
-    yield call(api.addCompany, form);
+    const data = yield call(api.addCompany, form);
+    yield put({ type: actions.SET_USER_DATA, payload: data.user });
     navigate();
     yield put({ type: actions.APP_IS_NOT_LOADING });
   } catch(e) {
