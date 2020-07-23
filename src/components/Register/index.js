@@ -22,12 +22,13 @@ const Register = props => {
   }
 
   function navigate() {
-    if (spotId) {
-      props.history.push('spot/' + spotId);
-      dispatch({ type: SET_SPOT_ID, payload: null });
-    } else {
-      props.history.push('/spots');
-    }
+    // if (spotId) {
+    //   props.history.push('spot/' + spotId);
+    //   dispatch({ type: SET_SPOT_ID, payload: null });
+    // } else {
+    //   props.history.push('/spots');
+    // }
+    props.history.push('/phoneinput');
   }
 
   return (

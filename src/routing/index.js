@@ -16,10 +16,14 @@ import Contact from '../components/Contact';
 import SubscriptionReport from '../components/SubscriptionReport';
 import TermsAndConditions from '../components/TermsAndConditions';
 import PrivacyPolicy from '../components/PrivacyPolicy';
+import PhoneInput from '../components/PhoneInput';
+import Activate from '../components/Activate';
 
 export default () => {
   return (
     <Switch>
+      <Route exact path="/activate" component={Activate} />
+      <Route exact path="/phoneinput" component={PhoneInput} />
       <Route exact path="/privacypolicy" component={PrivacyPolicy} />
       <Route exact path="/user/termsandconditions" component={TermsAndConditions} />
       <Route exact path="/company/subscriptionreport" component={SubscriptionReport} />
