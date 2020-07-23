@@ -1,16 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Input } from 'semantic-ui-react';
 import './Activate.css';
 import { verifyToken } from '../../lib/api';
 import { SET_USER_DATA } from '../../redux/actions/types';
 
-
 const Activate = props => {
   const dispatch = useDispatch();
+  let screen = '/spots';
+  const spotId = useSelector(state => state.spots.spotId);
+  const subscription = useSelector(state => state.subscription.subscription);
+  if (spotId) screen = '/spot/' + spotId;
+  if (subscription) screen = '/confirmsubscription/' + subscription._id;
+
   const [token, setToken] = useState('');
-  // const inputArr = [];
-  // for (let i = 0; i < 6; i++) inputArr.push(useRef());
   const input1 = useRef();
   const input2 = useRef();
   const input3 = useRef();
@@ -31,7 +34,6 @@ const Activate = props => {
         className="Activate-input"
         maxLength="1"
         onChange={(e) => onTextChange(e, i) }
-        // onKeyDown={(e) => console.log(e)}
         value={token[i]}
       />
     ));
@@ -55,7 +57,7 @@ const Activate = props => {
       try {
         const { user } = await verifyToken({ token: tok });
         dispatch({ type: SET_USER_DATA, payload: user });
-        props.history.push('/spots');
+        props.history.push(screen);
       } catch(e) {
         alert(e.message);
       }
@@ -81,7 +83,7 @@ const Activate = props => {
       <div className="Activate-inputs">
         {renderInputs()}
       </div>
-      <span className="Activate-skip">
+      <span className="Activate-skip" onClick={() => props.history.push(screen)}>
         Skip
       </span>
     </div>

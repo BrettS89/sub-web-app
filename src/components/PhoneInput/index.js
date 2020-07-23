@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './PhoneInput.css';
 import { Input, Icon } from 'semantic-ui-react';
 import { sendToken } from '../../lib/api';
 
 const PhoneInput = props => {
+  let screen = '/spots';
+  const spotId = useSelector(state => state.spots.spotId);
+  const subscription = useSelector(state => state.subscription.subscription);
+  if (spotId) screen = '/spot/' + spotId;
+  if (subscription) screen = '/confirmsubscription/' + subscription._id;
+
   const [phoneNumber, setPhoneNumber] = useState('');
 
   function onTextChange(e) {
-    console.log(e.target.value);
     setPhoneNumber(e.target.value);
   }
 
@@ -41,7 +47,7 @@ const PhoneInput = props => {
         Send verification code
       </button>
 
-      <span className="PhoneInput-skip" onClick={() => props.history.push('/spots')}>
+      <span className="PhoneInput-skip" onClick={() => props.history.push(screen)}>
         Skip
       </span>
 

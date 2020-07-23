@@ -9,14 +9,15 @@ const ConfirmSubscription = props => {
   const [subscription, setSubscription] = useState(null);
   const dispatch = useDispatch();
   const sub = useSelector(state => state.subscription.subscription);
-  const firstSubscription = useSelector(state => state.user.userData.firstSubscription);
+  const user = useSelector(state => state.user.userData);
+  const firstSubscription = user.firstSubscription;
 
   useEffect(() => {
     async function setSub() {
       const id = props.match.params.id;
       let selectedSubscription = sub
 
-      if (!sub || id === sub._id) {
+      if (!sub || id !== sub._id) {
         dispatch({ type: SET_SUBSCRIPTION, payload: null });
         selectedSubscription = await getSubscription(id);
       }
@@ -42,8 +43,19 @@ const ConfirmSubscription = props => {
     dispatch({ type: SUBSCRIBE, payload: { data, navigate } });
   }
 
+  function verify() {
+    props.history.push('/phoneinput');
+  }
+
   return subscription
-    ? <View sub={subscription} confirmSubscription={confirmSubscription} goBack={goBack} firstSubscription={firstSubscription} />
+    ? <View 
+        sub={subscription} 
+        confirmSubscription={confirmSubscription} 
+        goBack={goBack} 
+        firstSubscription={firstSubscription}
+        activated={user.activated}
+        verify={verify}
+      />
     : <div />
 };
 

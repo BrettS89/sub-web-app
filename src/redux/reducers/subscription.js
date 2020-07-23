@@ -18,7 +18,7 @@ export default (state = INITIAL_STATE, { type, payload }) => {
     case SET_SUBSCRIPTION:
       return {
         ...state,
-        payload,
+        subscription: payload,
       };
 
     case SET_CREDITS:

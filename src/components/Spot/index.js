@@ -31,6 +31,7 @@ const Subscription = props => {
       dispatch({ type: OPEN_CREDIT_CARD_MODAL });
       dispatch({ type: SET_SPOT_ID, payload: spot._id });
     } else {
+      subscription.company = { _id: subscription.company, photo: spot.photo };
       dispatch({ type: SET_SUBSCRIPTION, payload: subscription });
       props.history.push(`/confirmsubscription/${subscription._id}`);
     }
