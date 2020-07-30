@@ -63,6 +63,17 @@
   font-style: italic;
 }
 
+.Confirm-verify {
+  color: #026FD2;
+  font-weight: 700;
+  margin-top: 30px;
+  font-size: 15px;
+}
+
+.Confirm-verify:hover {
+  cursor: pointer;
+}
+
 @media(max-width: 580px) {
   .Confirm h1 {
     font-size: 24px;

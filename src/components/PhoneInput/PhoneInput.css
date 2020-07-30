@@ -1,0 +1,39 @@
+.PhoneInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.PhoneInput h1 {
+  margin-top: 30px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #026FD2;
+}
+
+.PhoneInput-input {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 315px;
+}
+
+.PhoneInput-button {
+  width: 190px;
+  margin-bottom: 25px;
+}
+
+.PhoneInput-skip {
+  font-weight: 700;
+  font-size: 15px;
+  color: #026FD2;
+}
+
+.PhoneInput-skip:hover {
+  cursor: pointer;
+}
+
+@media(max-width: 600px) {
+  .PhoneInput h1 {
+    font-size: 24px;
+  }
+
+}

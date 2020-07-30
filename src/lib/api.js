@@ -365,3 +365,31 @@ export async function getStripeDashboardLink() {
   errorThrower(res, response);
   return response.data;
 }
+
+export async function sendToken(body) {
+  const res = await fetch(`${URI}/user/sendtoken`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': getToken(),
+    },
+    body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function verifyToken(body) {
+  const res = await fetch(`${URI}/user/verifytoken`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': getToken(),
+    },
+    body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
