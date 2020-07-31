@@ -12,6 +12,9 @@ const CancelModal = ({ open, closeModal, cancelUserSubscription }) => {
         <div className="Cancel-content">
           Are you sure you want to cancel this subscription?
         </div>
+        <div className="Cancel-message">
+          When you cancel a subscription you'll lose the existing credits.
+        </div>
         <div className="Cancel-buttons">
           <button
             className="button lsbtn"

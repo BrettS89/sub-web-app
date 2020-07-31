@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal, Icon } from 'semantic-ui-react';
 import './UseCredit.css';
 
-const UseCreditModal = ({ modalOpen, closeModal, useCredit }) => {
+const UseCreditModal = ({ modalOpen, closeModal, useCredit, itemName }) => {
   return (
     <Modal open={modalOpen} className="UCModal">
       <Modal.Content>
@@ -10,14 +10,17 @@ const UseCreditModal = ({ modalOpen, closeModal, useCredit }) => {
           <Icon name="close" onClick={closeModal} />
         </div>
         <div className="UCModal-content">
-          Are you sure you want to redeem one credit?
+          Redeem one {itemName}
+        </div>
+        <div className="UCModal-message">
+          The store must see you tap redeem in order recieve your purchase
         </div>
         <div className="UCModal-buttons">
           <button
             className="button lsbtn"
             onClick={useCredit}
           >
-            Use credit
+            Redeem
           </button>
         </div>
       </Modal.Content>

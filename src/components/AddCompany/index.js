@@ -4,6 +4,7 @@ import { ADD_COMPANY } from '../../redux/actions/types';
 import './AddCompany.css';
 import View from './view';
 import { getUploadPhotoUrl } from '../../lib/api';
+import { APP_IS_LOADING, APP_IS_NOT_LOADING } from '../../redux/actions/types';  
 import imageUpload from '../../utils/imageUpload';
 
 const AddCompany = props => {
@@ -20,10 +21,12 @@ const AddCompany = props => {
       return;
     }
     try {
+      dispatch({ type: APP_IS_LOADING });
       var { url, key } = await getUploadPhotoUrl(image.name, image.type);
       const response = await imageUpload(url, image);
     } catch(e) {
       console.log(e);
+      dispatch({ type: APP_IS_NOT_LOADING });
       alert(e.message);
       return;
     }

@@ -330,9 +330,9 @@
     font-size: 20px;
   }
 
-  .Landing-spot-card img {
+  .Landing-spot-card-image {
     width: 350px;
     height: 215px;
-    border-radius: 3px;
+    border-radius: 6px!important;
   }
 }

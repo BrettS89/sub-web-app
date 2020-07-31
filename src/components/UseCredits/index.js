@@ -12,6 +12,7 @@ const UseCredits = props => {
   const [itemId, setItemId] = useState(null);
   const [credits, setCredits] = useState(null);
   const [userSubscriptionId, setUserSubscriptionId] = useState(null);
+  const [itemName, setItemName] = useState(null);
   const creditsState = useSelector(state => state.subscription.credits);
 
   function renderSubscriptions() {
@@ -26,7 +27,8 @@ const UseCredits = props => {
     });
   }
 
-  function openModal(subName, itmId, creds, userSubId) {
+  function openModal(subName, itmId, creds, userSubId, itemName) {
+    setItemName(itemName);
     setItemId(itmId);
     setSubscriptionName(subName);
     setCredits(creds);
@@ -40,6 +42,7 @@ const UseCredits = props => {
     setCredits(null);
     setModalOpen(false);
     setUserSubscriptionId(null);
+    setItemName(null);
   }
 
   function useCredit() {
@@ -60,6 +63,7 @@ const UseCredits = props => {
       useCredit={useCredit}
       credits={creditsState}
       navigateToSpots={navigateToSpots}
+      itemName={itemName}
     />
   );
 };

@@ -60,21 +60,21 @@ const View = props => {
         <h1>Paradyse launches in Jersey City</h1>
         <h2>Featured spots</h2>
         <div className="Landing-featured-spots">
-          <SpotCard
+          {/* <SpotCard
             name="Lackawanna Coffee"
             address1="Jersey City 07302"
             image="https://images.squarespace-cdn.com/content/v1/589cbe71e58c62750d51757b/1533735656592-C4VKLQA2QOHWRL01BND4/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/Lackawanna-Jersey+City+Coffee+Shops+Shoot-6747.jpg?format=2500w"
-          />
+          /> */}
           <SpotCard
-            name="The Ashford"
-            address1="Jersey City 07302"
-            image="https://s3-media0.fl.yelpcdn.com/bphoto/3H0fNy7_yMZa3JnQJzYOOQ/o.jpg"
+            name="Busy Bee Organics"
+            address1="Jersey City 07307"
+            image="https://d2u9o92zfq28vl.cloudfront.net/159598306707920190904225320_ScreenShot20190904at63021PM.jpg"
           />
-          <SpotCard
+          {/* <SpotCard
             name="Porta"
             address1="Jersey City 07302"
             image="https://cdn.theculturetrip.com/wp-content/uploads/2018/02/portajc_rooftop2_andrewholtz.jpg"
-          />
+          /> */}
         </div>
       </section>
       <section className="Landing-footer">
