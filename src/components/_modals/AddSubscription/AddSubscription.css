@@ -87,3 +87,16 @@
   width: 200px;
   margin: auto 3px;
 }
+
+.ASbtn-disabled {
+  background-color: #abceed;
+  color: white;
+  font-weight: 700;
+  width: 200px;
+  margin: auto 3px;
+}
+
+.ASbtn-disabled:hover {
+  cursor: pointer;
+}
+

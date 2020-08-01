@@ -65,6 +65,26 @@ const AddSubscription = ({ open, close, items, createSubscription }) => {
     });
   }
 
+  function renderCreateSubscriptionButton() {
+    if (!itemsToAdd.length) {
+      return (
+        <div
+          className="button ASbtn-disabled"
+        >
+          Create subscription
+        </div>
+      )
+    } else {
+      return (
+        <button
+          className="button ASbtn"
+        >
+          Create subscription
+        </button>
+      )
+    }
+  }
+
   function onCreateSubscription(e) {
     e.preventDefault();
     const plan = itemsToAdd.map(i => {
@@ -154,11 +174,7 @@ const AddSubscription = ({ open, close, items, createSubscription }) => {
             {renderItems()}
           </div>
           <div className="ASModal-buttons">
-            <button
-              className="button ASbtn"
-            >
-              Create subscription
-            </button>
+            {renderCreateSubscriptionButton()}
           </div>
         </Form>
       </Modal.Content>
